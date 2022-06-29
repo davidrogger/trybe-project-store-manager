@@ -6,9 +6,7 @@ const status = require('../../../helpers/status');
 const { allProductsResponse, productSearchNameResponse } = require('../../../__tests__/_dataMock');
 
 const productService = require('../../../services/productService');
-const productController = {
-  getAll: () => { },
-};
+const productController = require('../../../controllers/productController');
 
 describe('Testing productController', () => {
   const request = {};
@@ -26,7 +24,7 @@ describe('Testing productController', () => {
           productService.getAll.restore();
         })
 
-        it('Should return an empty array', async () => {
+        it('Should response 200 json with empty array', async () => {
           await productController.getAll(request, response);
           expect(response.status.calledWith(status.HTTP_OK_REQUEST)).to.be.equal(true);
           expect(response.json.calledWith([])).to.be.equal(true);
@@ -38,7 +36,7 @@ describe('Testing productController', () => {
         response.status = stub().returns(response);
         response.json = stub().returns();
 
-        stub(productController, 'getAll').resolves(allProductsResponse);
+        stub(productService, 'getAll').resolves(allProductsResponse);
       });
       after(() => {
         productService.getAll.restore()
@@ -53,16 +51,16 @@ describe('Testing productController', () => {
       });
     });
 
-  describe('Using getById', () => {
-    describe('When the id isn\'t a number', () => {
+  // describe('Using getById', () => {
+  //   describe('When the id isn\'t a number', () => {
       
-      it('Should throw an error "ValidationError" with a message ""id" should be a number"', () => {
+  //     it('Should throw an error "ValidationError" with a message ""id" should be a number"', () => {
 
-      })
-    });
+  //     })
+  //   });
     
-    describe('When the id is a number', () => {
+  //   describe('When the id is a number', () => {
   
-    });
-  })
+  //   });
+  // })
 });
