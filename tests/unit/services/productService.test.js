@@ -5,10 +5,7 @@ const { allProductsResponse, productSearchNameResponse } = require('../../../__t
 
 const productModel = require('../../../models/productModel');
 
-const productService = {
-  getAll: () => { },
-  getById: () => { },
-};
+const productService = require('../../../services/productService');
 
 describe('Testing productService', () => {
   describe('Getting all products', () => {
