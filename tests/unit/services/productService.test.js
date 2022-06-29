@@ -60,9 +60,9 @@ describe('Testing productService', () => {
         });
         after(() => productModel.getById.restore());
       
-        it('Should return an objects', async () => {
+        it('Should return an object', async () => {
           const result = await productService.getById();
-          expect(result).to.be.an('objects');
+          expect(result).to.be.an('object');
         });
 
         it('Should have the keys "id" with the value "1" and "name" with the value "Martelo de Thor" ', async () => {
