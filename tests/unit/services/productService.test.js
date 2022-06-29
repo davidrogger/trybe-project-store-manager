@@ -1,10 +1,13 @@
 const { expect } = require('chai');
 const { stub } = require('sinon');
 
+// mock Data
 const { allProductsResponse, productSearchNameResponse } = require('../../../__tests__/_dataMock');
 
+// stub Data
 const productModel = require('../../../models/productModel');
 
+// Função testada
 const productService = require('../../../services/productService');
 
 describe('Testing productService', () => {
@@ -45,12 +48,13 @@ describe('Testing productService', () => {
         });
         after(() => productModel.getById.restore());
 
-        it('Should throw an error "NotFound"', async () => {
+        it('Should throw an error "NotFoundError" with a message "Product not found""', async () => {
           try {
             await productService.getById();
           } catch (error) {
             expect(error).to.be.equal(true);
-            expect(error.name).to.be.equal('ErrorNotFound');
+            expect(error.name).to.be.equal('NotFoundError');
+            expect(error.message).to.be.equal('Product not found');
           }
         })
       });
