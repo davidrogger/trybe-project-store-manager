@@ -7,7 +7,7 @@ const { rightProductBody } = require('../../../__tests__/_dataMock');
 
 describe('Testing productModel ADD', () => {
   before(async () => {
-    stub(connection, 'query').resolves([{ insertId: 10 }]);
+    stub(connection, 'query').resolves([{ insertId: 4 }]);
   });
   after(() => {
     connection.query.restore();
@@ -15,6 +15,6 @@ describe('Testing productModel ADD', () => {
 
   it('Should return an object with the id of the product created', async () => {
     const result = await productModel.add(rightProductBody);
-    expect(result).to.deep.equal({ id: 10 });
+    expect(result).to.deep.equal({ id: 4 });
   });
 });
