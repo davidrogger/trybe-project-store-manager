@@ -12,7 +12,9 @@ const productModel = {
     return result;
   },
   async add({ name }) {
-    console.log(name);
+    const query = 'INSERT INTO StoreManager.products (name) VALUES (?)';
+    const [result] = await connection.query(query, [name]);
+    return { id: result.insertId };
   },
 };
 
