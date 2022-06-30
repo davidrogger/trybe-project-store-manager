@@ -22,7 +22,7 @@ describe('Testing productControler ADD', () => {
     })
     it('Should response 201 with a json "id" 4 and name "Produto1"', async () => {
       await productController.add(request, response);
-      expect(response.status.calledWith(status.HTTP_OK_REQUEST).to.be.equal(true));
+      expect(response.status.calledWith(status.HTTP_OK_CREATED)).to.be.equal(true);
       expect(response.json.calledWith(productCreateResponse)).to.be.equal(true);
 
     });
