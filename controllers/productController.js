@@ -27,6 +27,12 @@ const productController = {
 
     res.status(status.HTTP_OK_REQUEST).json({ id, name });
   },
+  async remove(req, res) {
+    const { id } = await productService.validateId(req.params);
+    await productService.getById(id);
+    await productService.remove({ id });
+    res.status(status.HTTP_NO_CONTENT).json();
+  },
 };
 
 module.exports = productController;
