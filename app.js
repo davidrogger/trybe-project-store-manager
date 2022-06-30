@@ -9,6 +9,7 @@ app.get('/', (_request, response) => {
   response.send();
 });
 
+app.use(express.json());
 app.use('/products', productRouter);
 app.use(errorHandler);
 
