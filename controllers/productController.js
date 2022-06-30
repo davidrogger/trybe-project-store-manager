@@ -11,6 +11,11 @@ const productController = {
     const result = await productService.getById(id);
     res.status(status.HTTP_OK_REQUEST).json(result);
   },
+  async add(req, res) {
+    const product = await productService.validateProductBody(req.body);
+    const result = await productService.add(product);
+    res.status(status.HTTP_OK_CREATED).json(result);
+  },
 };
 
 module.exports = productController;
