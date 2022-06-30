@@ -16,6 +16,10 @@ const productService = {
     if (result.length === 0) throw new NotFoundError('Product not found');
     return result[0];
   },
+  async add({ name }) {
+    const { id } = await productModel.add({ name });
+    return { id, name };
+  },
 };
 
 module.exports = productService;
