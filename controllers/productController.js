@@ -16,6 +16,17 @@ const productController = {
     const result = await productService.add(product);
     res.status(status.HTTP_OK_CREATED).json(result);
   },
+  async update(req, res) {
+    const [{ id }, { name }] = await Promise.all([
+      productService.validateId(req.params),
+      productService.validateProductBody(req.body),
+    ]);
+    
+    await productService.getById(id);
+    await productService.update({ id, name });
+
+    res.status(status.HTTP_OK_REQUEST).json({ id, name });
+  },
 };
 
 module.exports = productController;
