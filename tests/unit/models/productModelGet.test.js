@@ -11,7 +11,7 @@ const { allProductsResponse, productSearchNameResponse } = require('../../../__t
 const NOT_FOUND_ID = 999;
 const FOUND_ID = 1;
 
-describe('Testing productModel', () => {
+describe('Testing productModel GET', () => {
   describe('Getting all products', () => {
     describe('When there is no product into the database', () => {
       before(async () => {

@@ -10,7 +10,7 @@ const productModel = require('../../../models/productModel');
 // Função testada
 const productService = require('../../../services/productService');
 
-describe('Testing productService', () => {
+describe('Testing productService GET', () => {
   describe('Getting all products', () => {
     describe('When there is no product into the database', () => {
       before(async () => {

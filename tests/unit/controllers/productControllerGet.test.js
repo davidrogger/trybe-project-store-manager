@@ -8,7 +8,7 @@ const { allProductsResponse, productSearchNameResponse } = require('../../../__t
 const productService = require('../../../services/productService');
 const productController = require('../../../controllers/productController');
 
-describe('Testing productController', () => {
+describe('Testing productController GET', () => {
   const request = {};
   const response = {};
 
