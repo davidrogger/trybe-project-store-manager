@@ -11,6 +11,9 @@ const productModel = {
     const [result] = await connection.query(query, [id]);
     return result;
   },
+  async add({ name }) {
+    console.log(name);
+  },
 };
 
 module.exports = productModel;
