@@ -24,6 +24,13 @@ const productModel = {
     `;
     await connection.query(query, [name, id]);
   },
+  async remove({ id }) {
+    const query = `
+    DELETE FROM StoreManager.products
+    WHERE id = ?;
+    `;
+    await connection.query(query, [id]);
+  },
 };
 
 module.exports = productModel;
