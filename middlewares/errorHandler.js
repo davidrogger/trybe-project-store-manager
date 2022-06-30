@@ -7,6 +7,10 @@ module.exports = (err, _req, res, _next) => {
       res.status(status.HTTP_NOT_FOUND).json({ message });
       break;
     }
+    case 'ValidationError': {
+      res.status(status.HTTP_BAD_REQUEST).json({ message });
+      break;
+    }
     default:
       res.status(status.HTTP_INTERNAL_ERROR).json({ message });
   }
