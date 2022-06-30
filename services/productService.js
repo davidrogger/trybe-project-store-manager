@@ -7,6 +7,9 @@ const productService = {
   validateId: runSchema(Joi.object({
     id: Joi.number().required().positive().integer(),
   })),
+  validateProductBody: runSchema(Joi.object({
+    name: Joi.string().required(),
+  })),
   async getAll() {
     const result = await productModel.getAll();
     return result;
