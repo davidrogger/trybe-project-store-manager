@@ -51,16 +51,47 @@ describe('Testing productController', () => {
       });
     });
 
-  // describe('Using getById', () => {
-  //   describe('When the id isn\'t a number', () => {
-      
-  //     it('Should throw an error "ValidationError" with a message ""id" should be a number"', () => {
+  describe('Using getById', () => {
+    // describe('When the id isn\'t a number', () => {
+    //   before(async () => {
+    //     request.params = { id: 'idNotValid' };
 
-  //     })
-  //   });
+    //     request.status = stub().returns(response);
+    //     request.json = stub().returns();
+
+    //     stub(productService, 'getById').rejects();
+    //   });
+    //   after(() => {
+    //     productService.getById.restore();
+    //   })
+
+    //   it('Should throw an error "ValidationError" with a message ""id" should be a number"', () => {
+    //     try {
+    //       await productController.getById(request, response);
+    //     } catch (error) {
+          
+    //     }
+    //   })
+    // });
     
-  //   describe('When the id is a number', () => {
-  
-  //   });
-  // })
+    describe('When the id is a number', () => {
+      before(async () => {
+        request.params = { id: 1 };
+
+        response.status = stub().returns(response);
+        response.json = stub().returns();
+
+        stub(productService, 'getById').resolves(productSearchNameResponse[0]);
+      });
+      after(() => {
+        productService.getById.restore();
+      })
+
+      it('Should response status 200 and a json with the product data', async () => {
+        await productController.getById(request, response);
+        expect(response.status.calledWith(status.HTTP_OK_REQUEST)).to.be.equal(true);
+        expect(response.json.calledWith(productSearchNameResponse[0])).to.be.equal(true);
+      });
+    });
+  })
 });
