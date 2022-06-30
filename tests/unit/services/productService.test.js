@@ -52,8 +52,7 @@ describe('Testing productService', () => {
           try {
             await productService.getById();
           } catch (error) {
-            expect(error).to.be.equal(true);
-            expect(error.name).to.be.equal('NotFoundError');
+            expect(error.name).to.be.equal('ErrorNotFound');
             expect(error.message).to.be.equal('Product not found');
           }
         })
