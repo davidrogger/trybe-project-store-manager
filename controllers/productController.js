@@ -6,6 +6,11 @@ const productController = {
     const result = await productService.getAll();
     res.status(status.HTTP_OK_REQUEST).json(result);
   },
+  async getById(req, res) {
+    const { id } = productService.validateId(req.params);
+    const result = await productService.getById(id);
+    res.status(status.HTTP_OK_REQUEST).json(result);
+  },
 };
 
 module.exports = productController;
