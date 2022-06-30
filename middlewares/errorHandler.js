@@ -8,6 +8,10 @@ module.exports = (err, _req, res, _next) => {
       break;
     }
     case 'ValidationError': {
+      if (message.includes('length must be')) {
+        res.status(422).json({ message });
+        break;
+      }
       res.status(status.HTTP_BAD_REQUEST).json({ message });
       break;
     }
