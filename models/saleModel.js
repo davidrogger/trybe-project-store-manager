@@ -1,21 +1,25 @@
 const connection = require('./connection');
 
-const saleModel = {
-  async getAll() {
-    const query = `
+const queryGetAll = `
     SELECT
       sales_products.sale_id AS saleId,
       sales.date, products.id AS productId,
       sales_products.quantity
     FROM StoreManager.sales_products
     INNER JOIN StoreManager.sales ON sales.id = sales_products.sale_id
-    INNER JOIN StoreManager.products ON sales_products.product_id = products.id;
+    INNER JOIN StoreManager.products ON sales_products.product_id = products.id
     `;
-    const [result] = await connection.query(query);
+
+const saleModel = {
+  async getAll() {
+    const [result] = await connection.query(queryGetAll);
     return result;
   },
   async getById({ id }) {
-    console.log(id);
+    const paramsId = 'HAVING(sales_products.sale_id = ?)';
+    const query = queryGetAll + paramsId;
+    const [result] = await connection.query(query, [id]);
+    return result;
   },
 };
 
