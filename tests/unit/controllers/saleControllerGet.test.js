@@ -6,7 +6,7 @@ const status = require('../../../helpers/status');
 
 const salesStubData = [{}, {}];
 
-describe.only('Testing saleController GET', () => {
+describe('Testing saleController GET', () => {
   const request = {};
   const response = {};
 
