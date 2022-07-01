@@ -3,6 +3,10 @@ const { stub } = require('sinon');
 const saleService = require("../../../services/saleService");
 const saleModel = require("../../../models/saleModel");
 
+const saleIdStub = {
+  saleId: 1,
+};
+
 describe('Testing sale Service GET', () => {
   describe('Getting all sales', () => {
     before(async () => {
@@ -22,13 +26,36 @@ describe('Testing sale Service GET', () => {
   });
   describe.only('Getting sales by id', () => { 
     describe('When the id is not found', () => {
+      before(async () => {
+        stub(saleModel, 'getById').resolves([])
+      });
+      after(() => {
+        saleModel.getById.restore();
+      });
+
       it('Should throw an error "ErrorNotFound"', async () => {
         try {
-          await saleService.getById({ id: 10 });
+          await saleService.getById({});
         } catch (error) {
           expect(error.name).to.be.equal('ErrorNotFound');
           expect(error.name).not.to.be.equal('pao com ovo');
         }        
+      });
+    });
+    describe('When the id is found', () => { 
+      const saleId = { id: 1 };
+
+      before(async () => {
+        stub(saleModel, 'getById').resolves([saleIdStub, saleIdStub, saleIdStub]);
+      });
+      after(() => {
+        saleModel.getById.restore();
+      });
+      it('Should return an array of objects with the same id requested', async () => {
+        const result = await saleService.getById(saleId);
+        result.forEach((sale) => { 
+          expect(sale.saleId).to.be.equal(saleId.id);
+        });
       });
     });
   });
