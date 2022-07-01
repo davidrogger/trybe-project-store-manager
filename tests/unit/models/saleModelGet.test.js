@@ -5,7 +5,7 @@ const connection = require('../../../models/connection');
 const saleModel = require('../../../models/saleModel');
 
 describe('Testing saleModel GET', () => {
-  describe.only('Getting all sales', () => {
+  describe('Getting all sales', () => {
     before(async () => {
       stub(connection, 'query').resolves([[{}]])
     });
