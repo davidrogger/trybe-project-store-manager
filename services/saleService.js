@@ -1,4 +1,5 @@
 const saleModel = require('../models/saleModel');
+const { NotFoundError } = require('../helpers/NotFoundError');
 
 const saleService = {
   async getAll() {
@@ -6,7 +7,9 @@ const saleService = {
     return result;
   },
   async getById({ id }) {
-    console.log(id);
+    const result = await saleModel.getById({ id });
+    if (result.length === 0) throw new NotFoundError('Sale not found');
+    return result;
   },
 };
 
