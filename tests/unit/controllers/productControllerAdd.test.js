@@ -20,6 +20,10 @@ describe('Testing productControler ADD', () => {
       stub(productService, 'validateProductBody').resolves(rightProductBody)
       stub(productService, 'add').resolves(productCreateResponse)
     })
+    after(() => {
+      productService.validateProductBody.restore();
+      productService.add.restore();
+    })
     it('Should response 201 with a json "id" 4 and name "Produto1"', async () => {
       await productController.add(request, response);
       expect(response.status.calledWith(status.HTTP_OK_CREATED)).to.be.equal(true);
