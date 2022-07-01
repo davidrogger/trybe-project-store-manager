@@ -3,9 +3,7 @@ const { stub } = require('sinon');
 const saleService = require("../../../services/saleService");
 const saleModel = require("../../../models/saleModel");
 
-const saleIdStub = {
-  saleId: 1,
-};
+const { salesStubResponse } = require('../../../helpers/stubMock');
 
 describe('Testing sale Service GET', () => {
   describe('Getting all sales', () => {
@@ -24,7 +22,7 @@ describe('Testing sale Service GET', () => {
 
     });
   });
-  describe.only('Getting sales by id', () => { 
+  describe('Getting sales by id', () => { 
     describe('When the id is not found', () => {
       before(async () => {
         stub(saleModel, 'getById').resolves([])
@@ -46,7 +44,7 @@ describe('Testing sale Service GET', () => {
       const saleId = { id: 1 };
 
       before(async () => {
-        stub(saleModel, 'getById').resolves([saleIdStub, saleIdStub, saleIdStub]);
+        stub(saleModel, 'getById').resolves(salesStubResponse);
       });
       after(() => {
         saleModel.getById.restore();

@@ -4,7 +4,7 @@ const saleController = require('../../../controllers/saleController');
 const saleService = require('../../../services/saleService');
 const status = require('../../../helpers/status');
 
-const salesStubData = [{}, {}];
+const { salesStubResponse, salesStubData } = require('../../../helpers/stubMock');
 
 describe('Testing saleController GET', () => {
   const request = {};
@@ -27,5 +27,22 @@ describe('Testing saleController GET', () => {
       expect(response.json.calledWith(salesStubData)).to.be.equal(true);
     });
   });
-  // describe('Getting sales by id', () => { });
+  describe.only('Getting sales by id', () => {
+    before(async () => {
+      response.status = stub().returns(response);
+      response.json = stub().returns();
+
+      stub(saleService, 'getById').resolves(salesStubResponse);
+
+    });
+    after(() => {
+      saleService.getById.restore();
+    });
+
+    it('Should response 200 and a json with all sales Ids in the database', async() => {
+      await saleController.getById(request, response);
+      expect(response.status.calledWith(status.HTTP_OK_REQUEST)).to.be.equal(true);
+      expect(response.json.calledWith(salesStubResponse)).to.be.equal(true);
+    });
+  });
 });
