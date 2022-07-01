@@ -18,11 +18,11 @@
     "colId": "4b139bf1-9b62-484d-b2fc-da34210955a5",
     "containerId": "",
     "name": "getProductsById",
-    "url": "localhost:3000/products/1",
+    "url": "localhost:3000/products/2",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-06-30T18:04:33.956Z",
-    "modified": "2022-06-30T18:04:43.524Z",
+    "modified": "2022-06-30T21:12:16.248Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -36,14 +36,75 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-06-30T18:05:11.221Z",
-    "modified": "2022-06-30T18:09:55.592Z",
+    "modified": "2022-06-30T18:20:09.814Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"name\": \"project\"\n}",
+      "raw": "{\n    \"name\": \"inva\"\n}",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "1e70bb51-70ba-4be0-9953-23e1d45d1375",
+    "colId": "4b139bf1-9b62-484d-b2fc-da34210955a5",
+    "containerId": "",
+    "name": "updateProduct",
+    "url": "localhost:3000/products/2",
+    "method": "PUT",
+    "sortNum": 40000,
+    "created": "2022-06-30T19:40:41.415Z",
+    "modified": "2022-06-30T21:20:17.372Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"Criando teste3\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "797b6c90-57c6-4115-b909-30023840e5dd",
+    "colId": "4b139bf1-9b62-484d-b2fc-da34210955a5",
+    "containerId": "",
+    "name": "removeProduct",
+    "url": "localhost:3000/products/3",
+    "method": "DELETE",
+    "sortNum": 50000,
+    "created": "2022-06-30T19:58:19.166Z",
+    "modified": "2022-06-30T20:00:58.410Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "c3fa4817-05be-416a-90e3-fc0c060da570",
+    "colId": "68cd3ce9-0b96-4444-99cd-fd186d181b26",
+    "containerId": "",
+    "name": "getSales",
+    "url": "localhost:3000/sales",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-07-01T19:10:27.657Z",
+    "modified": "2022-07-01T19:10:39.122Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "384f1f67-ee21-4853-bb02-e50f8b9e45b2",
+    "colId": "68cd3ce9-0b96-4444-99cd-fd186d181b26",
+    "containerId": "",
+    "name": "geySaleById",
+    "url": "localhost:3000/sales/2",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2022-07-01T21:20:42.553Z",
+    "modified": "2022-07-01T21:21:06.181Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]
