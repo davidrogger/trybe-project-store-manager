@@ -49,10 +49,10 @@ describe('Testing sale Service GET', () => {
       after(() => {
         saleModel.getById.restore();
       });
-      it('Should return an array of objects with the same id requested', async () => {
+      it('Should return an array of objects without show the id requested', async () => {
         const result = await saleService.getById(saleId);
         result.forEach((sale) => { 
-          expect(sale.saleId).to.be.equal(saleId.id);
+          expect(sale.saleId).to.be.undefined;
         });
       });
     });

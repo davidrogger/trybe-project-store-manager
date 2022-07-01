@@ -2,6 +2,8 @@ const saleModel = require('../models/saleModel');
 const { NotFoundError } = require('../helpers/NotFoundError');
 
 const saleService = {
+  removeSaleId: (sales) => sales
+      .map(({ date, productId, quantity }) => ({ date, productId, quantity })),
   async getAll() {
     const result = await saleModel.getAll();
     return result;
@@ -9,7 +11,7 @@ const saleService = {
   async getById({ id }) {
     const result = await saleModel.getById({ id });
     if (result.length === 0) throw new NotFoundError('Sale not found');
-    return result;
+    return this.removeSaleId(result);
   },
 };
 
