@@ -27,7 +27,7 @@ describe('Testing saleController GET', () => {
       expect(response.json.calledWith(salesStubData)).to.be.equal(true);
     });
   });
-  describe.only('Getting sales by id', () => {
+  describe('Getting sales by id', () => {
     before(async () => {
       response.status = stub().returns(response);
       response.json = stub().returns();

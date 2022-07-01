@@ -6,6 +6,10 @@ const saleController = {
     const result = await saleService.getAll();
     res.status(status.HTTP_OK_REQUEST).json(result);
   },
+  async getById(req, res) {
+    const result = await saleService.getById(req.params);
+    res.status(status.HTTP_OK_REQUEST).json(result);
+  },
 };
 
 module.exports = saleController;
