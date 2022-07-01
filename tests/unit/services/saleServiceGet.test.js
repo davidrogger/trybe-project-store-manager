@@ -20,5 +20,11 @@ describe('Testing sale Service GET', () => {
 
     });
   });
-  // describe('Getting sales by id', () => { });
+  describe('Getting sales by id', () => { 
+    describe('When the id is not found', () => {
+      it('Should throw an error "NotFoundError"', () => {
+        expect(async () => saleService.getById({ id: 10 })).to.throw();
+      });
+    });
+  });
 });

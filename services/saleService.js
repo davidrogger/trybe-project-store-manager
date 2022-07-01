@@ -5,6 +5,9 @@ const saleService = {
     const result = await saleModel.getAll();
     return result;
   },
+  async getById({ id }) {
+    console.log(id);
+  },
 };
 
 module.exports = saleService;
