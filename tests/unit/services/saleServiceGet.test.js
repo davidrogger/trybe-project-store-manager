@@ -20,10 +20,15 @@ describe('Testing sale Service GET', () => {
 
     });
   });
-  describe('Getting sales by id', () => { 
+  describe.only('Getting sales by id', () => { 
     describe('When the id is not found', () => {
-      it('Should throw an error "NotFoundError"', () => {
-        expect(async () => saleService.getById({ id: 10 })).to.throw();
+      it('Should throw an error "ErrorNotFound"', async () => {
+        try {
+          await saleService.getById({ id: 10 });
+        } catch (error) {
+          expect(error.name).to.be.equal('ErrorNotFound');
+          expect(error.name).not.to.be.equal('pao com ovo');
+        }        
       });
     });
   });
