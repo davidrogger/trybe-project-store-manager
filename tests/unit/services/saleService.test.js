@@ -3,11 +3,14 @@ const { stub } = require('sinon');
 const saleService = require("../../../services/saleService");
 const saleModel = require("../../../models/saleModel");
 
-describe.only('Testing sale Service GET', () => {
+describe('Testing sale Service GET', () => {
   describe('Getting all sales', () => {
     before(async () => {
       stub(saleModel, 'getAll').resolves([{}]);
     });
+    after(() => {
+      saleModel.getAll.restore();
+    })
 
     it('Should return an array of objects and call the model responsable to get into the database', async () => {
       const result = await saleService.getAll();
