@@ -14,6 +14,9 @@ const saleModel = {
     const [result] = await connection.query(query);
     return result;
   },
+  async getById({ id }) {
+    console.log(id);
+  },
 };
 
 module.exports = saleModel;

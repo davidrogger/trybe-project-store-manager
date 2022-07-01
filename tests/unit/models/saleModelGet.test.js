@@ -20,5 +20,14 @@ describe('Testing saleModel GET', () => {
       expect(result).not.to.be.empty;
     });
   });
-  // describe('Getting sales by Id', () => { });
+  describe('Getting sales by Id', () => { 
+    describe('When the id is not found', () => {
+      it('Should return an empty array', async () => {
+        const result = await saleModel.getById({});
+        expect(result).to.be.an('array');
+        expect(result).to.be.empty;
+      });
+    });
+    describe('When the id is found', () => { });
+  });
 })
