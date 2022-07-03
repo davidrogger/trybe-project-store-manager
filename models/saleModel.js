@@ -21,6 +21,11 @@ const saleModel = {
     const [result] = await connection.query(query, [id]);
     return result;
   },
+  async addSale() {
+    const query = 'INSERT INTO ManagerStore.sales (date) VALUES (default)';
+    const [result] = await connection.query(query);
+    return { id: result.insertId };
+  },
 };
 
 module.exports = saleModel;
