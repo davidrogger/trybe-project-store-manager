@@ -19,7 +19,7 @@ describe('Testing saleService ADD', () => {
     it('Should return an object with the sale id and the list of product sold', async () => {
       const result = await saleService.add(rightSaleBody);
       expect(result.id).to.be.equal(4);
-      expect(result.itemSold).to.deep.equal(rightSaleBody);
+      expect(result.itemsSold).to.deep.equal(rightSaleBody);
     });
   });
 });
