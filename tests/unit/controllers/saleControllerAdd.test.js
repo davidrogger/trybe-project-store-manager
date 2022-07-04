@@ -19,7 +19,7 @@ describe('Testing saleController ADD', () => {
         response.status = stub().returns(response);
         response.json = stub().returns();
 
-        stub(saleService, 'validateProductSale').resolves(rightSaleBody);
+        stub(saleService, 'validateProductSale').resolves({ sales: rightSaleBody});
         stub(productService, 'getById').resolves();
         stub(saleService, 'add').resolves(saleCreateResponse);
 
