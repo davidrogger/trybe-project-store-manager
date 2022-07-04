@@ -94,4 +94,25 @@ describe('Testing productController GET', () => {
       });
     });
   })
+  describe('When getting a product by name', () => {    
+    describe('When the product is found', () => {
+      before(async () => {
+        response.status = stub().returns(response);
+        response.json = stub().returns();
+
+        stub(productService, 'getByName').resolves(productSearchNameResponse)
+      });
+      after(() => {
+        productService.getByName.restore();
+      });
+
+      it('Should response 200 json with all products found', async () => {
+        await productController.getByName(request, response);
+        expect(response.status.calledWith(status.HTTP_OK_REQUEST)).to.equal(true);
+        expect(response.json.calledWith(productSearchNameResponse)).to.equal(true);
+
+      });
+    });
+
+  });
 });

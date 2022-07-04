@@ -33,6 +33,10 @@ const productController = {
     await productService.remove({ id });
     res.status(status.HTTP_NO_CONTENT).json();
   },
+  async getByName(req, res) {
+    const result = await productService.getByName(req.query);
+    res.status(status.HTTP_OK_REQUEST).json(result);
+  },
 };
 
 module.exports = productController;
