@@ -22,9 +22,16 @@ const saleModel = {
     return result;
   },
   async addSale() {
-    const query = 'INSERT INTO ManagerStore.sales (date) VALUES (default)';
+    const query = 'INSERT INTO StoreManager.sales (date) VALUES (now())';
     const [result] = await connection.query(query);
     return { id: result.insertId };
+  },
+  async soldProduct(id, { productId, quantity }) {
+    const query = `
+    INSERT INTO StoreManager.sales_products (sale_id, product_id, quantity)
+      VALUES (?, ?, ?);
+    `;
+    await connection.query(query, [id, productId, quantity]);
   },
 };
 
