@@ -10,6 +10,9 @@ const saleController = {
     const result = await saleService.getById(req.params);
     res.status(status.HTTP_OK_REQUEST).json(result);
   },
+  async add(req, res) {
+    //
+  },
 };
 
 module.exports = saleController;
