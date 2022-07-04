@@ -33,6 +33,13 @@ const saleModel = {
     `;
     await connection.query(query, [id, productId, quantity]);
   },
+  async remove({ id }) {
+    const query = `
+    DELETE FROM StorageManager.sales
+    WHERE id = ?
+    `;
+    await connection.query(query, [id]);
+  },
 };
 
 module.exports = saleModel;
