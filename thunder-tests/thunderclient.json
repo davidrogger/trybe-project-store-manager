@@ -139,5 +139,24 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "439550dd-5c8a-4498-a171-588cb3eea605",
+    "colId": "68cd3ce9-0b96-4444-99cd-fd186d181b26",
+    "containerId": "",
+    "name": "updateSale",
+    "url": "localhost:3000/sales/1",
+    "method": "PUT",
+    "sortNum": 60000,
+    "created": "2022-07-04T18:52:11.962Z",
+    "modified": "2022-07-04T18:53:45.166Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n    {\n        \"productId\": 1,\n        \"quantity\": 10\n    },\n    {\n        \"productId\": 2,\n        \"quantity\": 50\n    }\n]",
+      "form": []
+    },
+    "tests": []
   }
 ]
