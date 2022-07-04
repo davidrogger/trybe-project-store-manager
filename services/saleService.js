@@ -13,6 +13,11 @@ const saleService = {
     if (result.length === 0) throw new NotFoundError('Sale not found');
     return this.removeSaleId(result);
   },
+  async add(products) {
+    const { id } = await saleModel.addSale();
+    await Promise.all(products.map((product) => saleModel.soldProduct(id, product)));
+    return { id, itemSold: products };
+  },
 };
 
 module.exports = saleService;
