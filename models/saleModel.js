@@ -40,13 +40,12 @@ const saleModel = {
     `;
     await connection.query(query, [id]);
   },
-  async update({ id, productId, quantity }) {
+  async removeProducts(saleId) {
     const query = `
-      UPDATE StoreManager.sales_products
-      SET product_id = ?, quantity = ?
-      WHERE id = ?
+    DELETE FROM StoreManager.sales_products
+    WHERE sale_id = ?;
     `;
-    await connection.query(query, [productId, quantity, id]);
+    await connection.query(query, [saleId]);
   },
 };
 
