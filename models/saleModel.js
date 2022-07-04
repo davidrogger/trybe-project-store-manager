@@ -40,6 +40,14 @@ const saleModel = {
     `;
     await connection.query(query, [id]);
   },
+  async update({ id, productId, quantity }) {
+    const query = `
+      UPDATE StoreManager.sales_products
+      SET product_id = ?, quantity = ?
+      WHERE id = ?
+    `;
+    await connection.query(query, [productId, quantity, id]);
+  },
 };
 
 module.exports = saleModel;
