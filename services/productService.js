@@ -29,6 +29,10 @@ const productService = {
   async remove({ id }) {
     await productModel.remove({ id });
   },
+  async getByName({ q }) {
+    const result = await productModel.getByName({ name: q });
+    return result;
+  },
 };
 
 module.exports = productService;
