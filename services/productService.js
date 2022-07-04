@@ -30,7 +30,10 @@ const productService = {
     await productModel.remove({ id });
   },
   async getByName({ q }) {
-    const result = await productModel.getByName({ name: q });
+    if (!q) {
+      return this.getAll();
+    }
+    const result = await productModel.getByName({ name: `%${q}%` });
     return result;
   },
 };

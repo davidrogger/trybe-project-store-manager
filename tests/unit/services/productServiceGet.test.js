@@ -86,7 +86,7 @@ describe('Testing productService GET', () => {
       });
 
       it('Should return an empty array', async () => {
-        const result = await productService.getByName({});
+        const result = await productService.getByName({ q: 'Produto não existe' });
         expect(result).to.be.an('array');
         expect(result).to.be.empty;
       });
@@ -100,7 +100,22 @@ describe('Testing productService GET', () => {
       });
 
       it('Should return an array of objects', async () => {
-        const result = await productService.getByName({});
+        const result = await productService.getByName({ q: 'Produto existe' });
+        expect(result).to.be.an('array');
+        expect(result).not.to.be.empty;
+      });
+    });
+    describe('When the parameter "q" is empty', () => {
+      before(async () => {
+        stub(productService, 'getAll').resolves(allProductsResponse);
+      });
+      after(() => {
+        productService.getAll.restore();
+      });
+
+      it('Should call productService getAll', async() => {
+        const result = await productService.getByName({ q: undefined });
+        expect(productService.getAll.called).to.be.equal(true);
         expect(result).to.be.an('array');
         expect(result).not.to.be.empty;
       });
