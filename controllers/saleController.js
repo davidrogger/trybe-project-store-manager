@@ -17,6 +17,9 @@ const saleController = {
     const result = await saleService.add(sales);
     res.status(status.HTTP_OK_CREATED).json(result);
   },
+  async remove(req, res) {
+    //
+  },
 };
 
 module.exports = saleController;
