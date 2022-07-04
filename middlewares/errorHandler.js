@@ -8,7 +8,7 @@ module.exports = (err, _req, res, _next) => {
       break;
     }
     case 'ValidationError': {
-      if (message.includes('length must be')) {
+      if (message.includes('must be')) {
         res.status(422).json({ message });
         break;
       }
