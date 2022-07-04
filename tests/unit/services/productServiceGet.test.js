@@ -76,4 +76,34 @@ describe('Testing productService GET', () => {
       });
     });
   });
+  describe('Getting products by name', () => {
+    describe('When the product is not found', () => {
+      before(async () => {
+        stub(productModel, 'getByName').resolves([]);
+      });
+      after(() => {
+        productModel.getByName.restore();
+      });
+
+      it('Should return an empty array', async () => {
+        const result = await productService.getByName({});
+        expect(result).to.be.an('array');
+        expect(result).to.be.empty;
+      });
+    });
+    describe('When the product is found', () => {
+      before(async () => { 
+        stub(productModel, 'getByName').resolves([{}]);
+      });
+      after(() => { 
+        productModel.getByName.restore();
+      });
+
+      it('Should return an array of objects', async () => {
+        const result = await productService.getByName({});
+        expect(result).to.be.an('array');
+        expect(result).not.to.be.empty;
+      });
+    });
+  });
 });
