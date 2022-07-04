@@ -4,12 +4,15 @@ const { NotFoundError } = require('../helpers/NotFoundError');
 const { runSchema } = require('./validator');
 
 const saleService = {
-  validateProductSale: runSchema(
-    Joi.array().items(Joi.object({
-      productId: Joi.number().integer().positive().required(),
-      quantity: Joi.number().integer().positive().required(),
-    })),
-  ),
+  validateProductSale: runSchema(Joi.object({
+    sales: Joi.array().items(
+      Joi.object({
+        productId: Joi.number().label('productId').integer().positive()
+          .required(),
+        quantity: Joi.number().label('quantity').min(1).required(),
+      }).required(),
+    ).required(),
+  })),
   removeSaleId: (sales) => sales
       .map(({ date, productId, quantity }) => ({ date, productId, quantity })),
   async getAll() {
@@ -24,7 +27,7 @@ const saleService = {
   async add(products) {
     const { id } = await saleModel.addSale();
     await Promise.all(products.map((product) => saleModel.soldProduct(id, product)));
-    return { id, itemSold: products };
+    return { id, itemsSold: products };
   },
 };
 
