@@ -29,6 +29,9 @@ const saleService = {
     await Promise.all(products.map((product) => saleModel.soldProduct(id, product)));
     return { id, itemsSold: products };
   },
+  async remove({ id }) {
+    await saleModel.remove({ id });
+  },
 };
 
 module.exports = saleService;
