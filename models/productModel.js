@@ -31,6 +31,14 @@ const productModel = {
     `;
     await connection.query(query, [id]);
   },
+  async getByName({ name }) {
+    const query = `
+      SELECT * FROM StoreManager.products
+      WHERE name LIKE ?;
+      `;
+    const [result] = await connection.query(query, [name]);
+    return result;
+  },
 };
 
 module.exports = productModel;
