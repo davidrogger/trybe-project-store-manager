@@ -125,5 +125,19 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "b23486fe-88c7-463a-9558-87915bb287f6",
+    "colId": "68cd3ce9-0b96-4444-99cd-fd186d181b26",
+    "containerId": "",
+    "name": "deleteSale",
+    "url": "localhost:3000/sales/1",
+    "method": "DELETE",
+    "sortNum": 50000,
+    "created": "2022-07-04T17:56:40.310Z",
+    "modified": "2022-07-04T17:57:26.410Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
