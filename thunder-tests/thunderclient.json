@@ -158,5 +158,25 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "6f3ae9a6-6ef5-412f-bb44-2e6354edf326",
+    "colId": "4b139bf1-9b62-484d-b2fc-da34210955a5",
+    "containerId": "",
+    "name": "getProductByName",
+    "url": "localhost:3000/products/search?q=traje",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2022-07-04T21:55:31.903Z",
+    "modified": "2022-07-04T21:56:24.225Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "traje",
+        "isPath": false
+      }
+    ],
+    "tests": []
   }
 ]

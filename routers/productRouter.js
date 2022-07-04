@@ -4,6 +4,7 @@ const productController = require('../controllers/productController');
 
 const productRouter = Router();
 
+productRouter.get('/search', rescue(productController.getByName));
 productRouter.get('/:id', rescue(productController.getById));
 productRouter.put('/:id', rescue(productController.update));
 productRouter.delete('/:id', rescue(productController.remove));
