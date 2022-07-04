@@ -1,6 +1,7 @@
 const { expect } = require('chai');
 const { stub } = require('sinon');
 const saleService = require('../../../services/saleService');
+const saleController = require('../../../controllers/saleController');
 
 const status = require('../../../helpers/status');
 
@@ -28,6 +29,7 @@ describe('Testing productController REMOVE', () => {
   describe('When data to remove is valid', () => {
     it('Should return status 204 no content', async () => {
       await saleController.remove(request, response);
+      expect(validate.id.calledOnce).to.be.equal(true);
       expect(saleService.getById.calledOnce).to.be.equal(true);
       expect(saleService.remove.calledOnce).to.be.equal(true);
       expect(response.status.calledWith(status.HTTP_NO_CONTENT)).to.be.equal(true);
