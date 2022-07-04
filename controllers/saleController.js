@@ -12,9 +12,9 @@ const saleController = {
     res.status(status.HTTP_OK_REQUEST).json(result);
   },
   async add(req, res) {
-    const products = await saleService.validateProductSale(req.body);
-    await Promise.all(products.map(({ productId }) => productService.getById({ productId })));
-    const result = await saleService.add(products);
+    const { sales } = await saleService.validateProductSale({ sales: req.body });
+    await Promise.all(sales.map(({ productId }) => productService.getById(productId)));
+    const result = await saleService.add(sales);
     res.status(status.HTTP_OK_CREATED).json(result);
   },
 };
