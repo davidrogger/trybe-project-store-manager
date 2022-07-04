@@ -35,7 +35,7 @@ const saleModel = {
   },
   async remove({ id }) {
     const query = `
-    DELETE FROM StorageManager.sales
+    DELETE FROM StoreManager.sales
     WHERE id = ?
     `;
     await connection.query(query, [id]);
