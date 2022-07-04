@@ -73,4 +73,33 @@ describe('Testing productModel GET', () => {
       })
     });
   })
+  describe.only('Getting product by name', () => {
+    describe('When the name is not found', () => {
+      before(async () => {
+        stub(connection, 'query').resolves([[]]);
+      });
+      after(() => {
+        connection.query.restore();
+      });
+
+      it('Should return an empty array', async () => {
+        const result = await productModel.searchName({});
+        expect(result).to.be.an('array');
+        expect(result).to.be.empty;
+      });
+    });
+    describe('When the name is found', () => {
+      before(async () => {
+        stub(connection, 'query').resolves([[{}]]);
+      });
+      after(() => {
+        connection.query.restore();
+      });
+      it('Should return an array with objects', async () => {
+        const result = await productModel.searchName({});
+        expect(result).to.be.an('array');
+        expect(result).not.to.be.empty;
+      });
+    });
+  });
 });
