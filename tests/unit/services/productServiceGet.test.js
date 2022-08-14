@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const { stub } = require('sinon');
 
 // mock Data
-const { allProductsResponse, productSearchNameResponse } = require('../../../__tests__/_dataMock');
+const { allProductsResponse, productSearchNameResponse } = require('../../dataMock');
 
 // stub Data
 const productModel = require('../../../models/productModel');

@@ -3,7 +3,7 @@ const { stub } = require('sinon');
 const connection = require('../../../models/connection');
 const saleModel = require('../../../models/saleModel');
 
-const { rightSaleBody } = require('../../../__tests__/_dataMock');
+const { rightSaleBody } = require('../../dataMock');
 const id = 4;
 
 describe('Testing saleModel ADD', () => {

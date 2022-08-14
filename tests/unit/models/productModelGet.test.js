@@ -5,7 +5,7 @@ const productModel = require('../../../models/productModel');
 const connection = require('../../../models/connection');
 
 // reaproveitando mock criado pela trybe
-const { allProductsResponse, productSearchNameResponse } = require('../../../__tests__/_dataMock');
+const { allProductsResponse, productSearchNameResponse } = require('../../dataMock');
 
 // Apenas valores simbólicos devido ao stub, esse valores não tem importância.
 const NOT_FOUND_ID = 999;
