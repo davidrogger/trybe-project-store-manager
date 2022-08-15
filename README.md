@@ -1,6 +1,13 @@
 # Sobre o Projeto
 
 Desenvolvido um CRUD de uma API utilizando arquitetura **MSC** (Model Service Controller), de uma loja de super heroes.
+<details>
+<summary>
+<strong>Swagger All Routes</strong>
+</summary>
+<img src='./img/swagger_allroutes.png' alt='allroutes'>
+</details>
+
 
 # Tecnologias usadas
 
