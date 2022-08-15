@@ -7,12 +7,25 @@
   },
   "host": "localhost:3000",
   "basePath": "/",
+  "tags": [
+    {
+      "name": "Products",
+      "description": "Endpoints"
+    },
+    {
+      "name": "Sales",
+      "description": "Endpoints"
+    }
+  ],
   "schemes": [
     "http"
   ],
   "paths": {
     "/products/search": {
       "get": {
+        "tags": [
+          "Products"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
@@ -20,16 +33,25 @@
     },
     "/products/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Products"
+        ],
+        "description": "Endpoint para encontrar um produto por seu 'ID'",
         "parameters": [],
         "responses": {}
       },
       "put": {
+        "tags": [
+          "Products"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
       },
       "delete": {
+        "tags": [
+          "Products"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
@@ -37,11 +59,17 @@
     },
     "/products/": {
       "get": {
+        "tags": [
+          "Products"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
       },
       "post": {
+        "tags": [
+          "Products"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
@@ -49,16 +77,25 @@
     },
     "/sales/{id}": {
       "get": {
+        "tags": [
+          "Sales"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
       },
       "put": {
+        "tags": [
+          "Sales"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
       },
       "delete": {
+        "tags": [
+          "Sales"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
@@ -66,11 +103,17 @@
     },
     "/sales/": {
       "get": {
+        "tags": [
+          "Sales"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
       },
       "post": {
+        "tags": [
+          "Sales"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
