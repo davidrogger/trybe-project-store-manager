@@ -26,9 +26,19 @@
         "tags": [
           "Products"
         ],
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "description": "Endpoint para encontrar um produto por seu nome",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/products/{id}": {

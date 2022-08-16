@@ -8,6 +8,9 @@ Desenvolvido um CRUD de uma API utilizando arquitetura **MSC** (Model Service Co
 <a href="./img/swagger_getProductId.png">
 <img src="./img/swagger_getProductId.png" width="30%"></img>
 </a>
+<a href="./img/swagger_getProductName.png">
+<img src="./img/swagger_getProductName.png" width="30%"></img>
+</a>
 
 # Tecnologias usadas
 
@@ -27,4 +30,8 @@ Desenvolvido um CRUD de uma API utilizando arquitetura **MSC** (Model Service Co
 # Conclusão
 
 Maior desafio foi de como definir os testes iniciais, como escrever de forma clara (usando o inglês para treino do idioma), organizar as funcionalidades em camadas da API usando o conceito de **MSC**, encontrar funcionalidades que facilitariam as validações usando o **joi**, e também entender o que os requisitos dos testes solicitados pela trybe do projeto esperavam no desenvolvimento.
-Ainda quero melhorar algumas partes do projeto na parte de teste principalmente.
+Quero melhorar algumas partes do projeto na parte de teste, e a parte de documentação do swagger, essa foi a minha primeira vez usando ele, para coletar algumas imagens e aprensentar alguns endpoints.
+
+# Instalando este respositório.
+
+# 🚧 README em construção 🚧
