@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.0",
     "title": "Project Store Manager",
-    "description": "Meu primeiro CRUD API usando Arquitetura MSC. by Davíd Roggér"
+    "description": "API Hero Items"
   },
   "host": "localhost:3000",
   "basePath": "/",
