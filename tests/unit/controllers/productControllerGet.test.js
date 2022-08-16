@@ -3,7 +3,7 @@ const { stub } = require('sinon');
 
 const status = require('../../../helpers/status');
 
-const { allProductsResponse, productSearchNameResponse } = require('../../../__tests__/_dataMock');
+const { allProductsResponse, productSearchNameResponse } = require('../../dataMock');
 
 const productService = require('../../../services/productService');
 const productController = require('../../../controllers/productController');

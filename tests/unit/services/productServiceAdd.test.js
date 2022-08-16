@@ -4,7 +4,7 @@ const { stub } = require('sinon');
 const productModel = require('../../../models/productModel');
 const productService = require('../../../services/productService');
 
-const { productCreateResponse, rightProductBody } = require('../../../__tests__/_dataMock');
+const { productCreateResponse, rightProductBody } = require('../../dataMock');
 
 describe('Testing productService ADD', () => {
   before(async () => {

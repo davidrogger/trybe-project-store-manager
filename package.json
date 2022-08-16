@@ -11,10 +11,12 @@
     "test": "jest --config ./jest.config.js --runInBand --detectOpenHandles",
     "test:mocha": "nyc --all --include models --include services --include controllers mocha tests/unit/**/*.js --exit",
     "start": "node index.js",
+    "dev": "nodemon index.js",
     "debug": "nodemon --ignore coverage index.js",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js, .jsx",
-    "migration": "node -e \"require('./__tests__/_utils').runMigration()\"",
-    "seed": "node -e \"require('./__tests__/_utils').runSeed()\""
+    "migration": "node -e \"require('./helpers/utils').runMigration()\"",
+    "seed": "node -e \"require('./helpers/utils').runSeed()\"",
+    "swagger-autogen": "node swagger.js"
   },
   "repository": {
     "type": "git",
@@ -28,13 +30,16 @@
   "homepage": "https://github.com/tryber/sd-02-project-store-manager#readme",
   "dependencies": {
     "@hapi/boom": "^9.1.0",
+    "and": "^0.0.3",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-rescue": "^1.1.26",
     "joi": "^17.6.0",
     "mysql2": "^2.3.0",
-    "shelljs": "^0.8.5"
+    "shelljs": "^0.8.5",
+    "swagger-autogen": "^2.21.5",
+    "swagger-ui-express": "^4.5.0"
   },
   "devDependencies": {
     "chai": "^4.3.4",

@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const { stub } = require('sinon');
 
-const { productCreateResponse, rightProductBody } = require('../../../__tests__/_dataMock');
+const { productCreateResponse, rightProductBody } = require('../../dataMock');
 
 const status = require('../../../helpers/status');
 

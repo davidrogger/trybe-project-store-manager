@@ -6,7 +6,7 @@ const saleController = require('../../../controllers/saleController');
 const saleService = require('../../../services/saleService');
 const productService = require('../../../services/productService');
 
-const { rightSaleBody, saleCreateResponse } = require('../../../__tests__/_dataMock');
+const { rightSaleBody, saleCreateResponse } = require('../../dataMock');
 
 describe('Testing saleController ADD', () => {
   const request = {};

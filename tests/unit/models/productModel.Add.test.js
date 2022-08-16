@@ -3,7 +3,7 @@ const { stub } = require('sinon');
 const connection = require('../../../models/connection');
 const productModel = require('../../../models/productModel');
 
-const { rightProductBody } = require('../../../__tests__/_dataMock');
+const { rightProductBody } = require('../../dataMock');
 
 describe('Testing productModel ADD', () => {
   before(async () => {

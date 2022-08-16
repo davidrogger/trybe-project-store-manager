@@ -7,7 +7,7 @@ const saleService = require('../../../services/saleService');
 const productService = require('../../../services/productService');
 const validate = require('../../../services/validator');
 
-const { rightSaleBody } = require('../../../__tests__/_dataMock');
+const { rightSaleBody } = require('../../dataMock');
 
 const saleUpdatedResponse = {
   saleId: 1,
