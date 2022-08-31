@@ -92,27 +92,66 @@ Verifique se os container está funcionando e rodando com o comando `docker ps`.
     </strong>
   </summary>
 
-As rodas desenvolvidas nos projetos são às;
+As rodas desenvolvidas no projeto são;
 
-## /products
-- GET - localhost:3000/products/search
-- GET - localhost:3000/products/:id
-- PUT - localhost:3000/products/:id
-- DELETE - localhost:3000/products/:id
-- GET - localhost:3000/products
-- POST - localhost:3000/products
+# /products
+### GET - `localhost:3000/products/search`
+- Rota responsavel por realizar uma consultas por qualquer palavra inclusa em um nome de item, usando o sinal de `?q=NomeDesejado` após search.
 
-## /sales
+<details>
+  <summary>
+    Exemplo:
+  </summary>
 
-- GET - localhost:3000/sales/:id
-- PUT - localhost:3000/sales/:id
-- DELETE - localhost:3000/sales/:id
-- GET - localhost:3000/sales
-- POST - localhost:3000/sales
+  ```
+  localhost:3000/products/search?q=thor
+  ```
+  Seu retorno será qualquer item que tenha em seu nome `thor`.
 
-## 🚧 /doc
+</details>
 
-- localhost:3000/doc
+#
+### GET - `localhost:3000/products/:id`
+- Rota responsavel por realizar uma consulta por um item especifico com base em seu *id*.
+<details>
+  <summary>
+    Exemplo:
+  </summary>
+
+  ```
+  localhost:3000/products/1
+  ```
+  Seu retorno será do item com id 1, caso o item não exista no banco, seu retorno será `Product not found`.
+
+</details>
+
+#
+### PUT - `localhost:3000/products/:id`
+#
+### DELETE - `localhost:3000/products/:id`
+#
+### GET - `localhost:3000/products`
+#
+### POST - `localhost:3000/products`
+- Rota responsavel por apresentar todos os itens cadastrados no banco de dados.
+#
+# /sales
+
+### GET - `localhost:3000/sales/:id`
+#
+### PUT - `localhost:3000/sales/:id`
+#
+### DELETE - `localhost:3000/sales/:id`
+#
+### GET - `localhost:3000/sales`
+#
+### POST - `localhost:3000/sales`
+#
+
+# 🚧 /doc
+
+### `localhost:3000/doc`
+- Rota de documentação usando o swagger, em desenvolvimento.
 
 </details>
 
