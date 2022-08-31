@@ -1,3 +1,9 @@
 FROM node:16
 
-COPY . ./home/node/app
+WORKDIR /home/node/app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .

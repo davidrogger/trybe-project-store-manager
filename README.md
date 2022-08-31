@@ -36,6 +36,305 @@ Desenvolvido um CRUD de uma API utilizando arquitetura **MSC** (Model Service Co
 Maior desafio foi de como definir os testes iniciais, como escrever de forma clara (usando o inglês para treino do idioma), organizar as funcionalidades em camadas da API usando o conceito de **MSC**, encontrar funcionalidades que facilitariam as validações usando o **joi**, e também entender o que os requisitos dos testes solicitados pela trybe do projeto esperavam no desenvolvimento.
 Quero melhorar algumas partes do projeto na parte de teste, e a parte de documentação do swagger, essa foi a minha primeira vez usando ele, para coletar algumas imagens e aprensentar alguns endpoints.
 
-# Instalando este respositório.
+# Iniciando o Projeto Store Manager.
 
-# 🚧 README em construção 🚧
+Importante: seguir a ordem apresentada a baixo, para o funcionamento.
+
+<details>
+  <summary>
+    <strong>
+      ⚠️ Configurações mínimas para execução do projeto
+    </strong>
+  </summary>
+
+   - Sistema Operacional Distribuição Unix
+ - Node versão 16
+ - Docker
+ - Docker-compose versão >=1.29.2
+ - API Client ([Thunder Client](https://www.thunderclient.com/), [Insomnia](https://insomnia.rest/), [POSTMAN](https://www.postman.com/), ou algum outro de sua preferência)
+
+</details>
+
+<details>
+  <summary>
+    <strong>
+      ⚙️ Variáveis de ambiente
+    </strong>
+  </summary>
+
+Deve-se criar um arquivo .env na raiz do projeto com o seguinte conteúdo:
+```
+MYSQL_HOST=127.0.0.1
+MYSQL_USER=root
+MYSQL_PASSWORD=password
+MYSQL_DATABASE=StoreManager
+PORT=3000
+```
+</details>
+
+<details>
+  <summary>
+    <strong>
+      ⚠️ Inicie o docker-compose
+    </strong>
+  </summary>
+
+Para iniciar o docker compose, você deve dentro da pasta raiz do projeto usar o comando: `docker-compose up -d`
+
+Verifique se os container está funcionando e rodando com o comando `docker ps`. Devem aparecer dois container com o nome de *store_manager* e *store_manager_db*.
+
+</details>
+
+<details>
+  <summary>
+    <strong>
+      🗂 Acessando as Rotas
+    </strong>
+  </summary>
+
+As rodas desenvolvidas no projeto são;
+
+# /products
+### GET - `localhost:3000/products/search`
+- Rota responsável por realizar uma consultas por qualquer palavra inclusa em um nome de produto, usando o sinal de `?q=NomeDesejado` após search.
+
+<details>
+  <summary>
+    Exemplo:
+  </summary>
+  ⚠️ Pode ser usado o URL em seu navegador ou um API Client.
+
+  ```
+  localhost:3000/products/search?q=thor
+  ```
+- Seu retorno será <strong style="color:green">status 200 OK</strong> com qualquer produto que tenha em seu nome contendo `thor`.
+
+</details>
+
+#
+### GET - `localhost:3000/products/:id`
+- Rota responsável por realizar uma consulta por um produto especifico com base em seu *id*.
+<details>
+  <summary>
+    Exemplo:
+  </summary>
+  ⚠️ Pode ser usado o URL em seu navegador ou um API Client.
+
+  ```
+  localhost:3000/products/1
+  ```
+- Seu retorno será <strong style="color:green">status 200</strong> com o produto id 1, caso o ele não exista no banco, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+
+</details>
+
+#
+### PUT - `localhost:3000/products/:id`
+- Rota responsável por realizar atualização de um produto especifico com base em seu *id*.
+<details>
+  <summary>
+    Exemplo:
+  </summary>
+  ⚠️ Necessário uso de um API Client.
+
+  ```
+  localhost:3000/products/1
+  ```
+- Para realizar a atualização, deve-se enviar um corpo com os campos do produto, e realizar a atualização dentro do campo desejado. <br />
+  <strong>Campo necessário abaixo:</strong>
+```
+  {
+  "name": "Mjölnir"
+  }
+```
+- Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 200 OK</strong> com o produto atualizado, apresentando o o novo dado com seu id.
+- Caso o campo seja inválido ou falte, ele deve retornar <strong style="color:red">status 400 Bad Request</strong> com o campo necessário.
+- Caso seja um id que não existe, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+
+</details>
+
+
+#
+### DELETE - `localhost:3000/products/:id`
+- Rota responsável por deletar um produto especifico com base em seu *id*.
+<details>
+  <summary>
+    Exemplo:
+  </summary>
+  ⚠️ Necessário uso de um API Client.
+
+  ```
+  localhost:3000/products/1
+  ```
+
+- Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 204 No Content</strong>, sem nenhuma informação.
+- Caso seja um id que não existe, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+
+</details>
+
+#
+### GET - `localhost:3000/products`
+- Rota responsável por apresentar todos os produtos cadastrados no banco de dados.
+<details>
+  <summary>
+    Exemplo:
+  </summary>
+  ⚠️ Pode ser usado o URL em seu navegador ou um API Client.
+
+  ```
+  localhost:3000/products
+  ```
+
+- Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 200</strong>, com todos itens cadastrados no banco.
+
+</details>
+
+#
+### POST - `localhost:3000/products`
+- Rota responsável por cadastrar um novo produto ao banco de dados.
+<details>
+  <summary>
+    Exemplo:
+  </summary>
+  ⚠️ Necessário uso de um API Client.
+
+  ```
+  localhost:3000/products
+  ```
+
+- Para realizar o cadastro, deve-se enviar um corpo com todos os campos do produto.
+
+  ```
+    {
+    "name": "Stone Glove"
+    }
+  ```
+  - Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 204 OK</strong> com o produto cadastrado e seu id.
+  - Caso o campo seja inválido ou falte, ele deve retornar <strong style="color:red">status 400 Bad Request</strong> com o campo necessário.
+  - Caso seja um id que não existe, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+
+</details>
+
+#
+# /sales
+### GET - `localhost:3000/sales/:id`
+- Rota responsável por realizar uma consulta por uma venda especifica com base em seu *id*.
+<details>
+  <summary>
+    Exemplo:
+  </summary>
+  ⚠️ Pode ser usado o URL em seu navegador ou um API Client.
+
+  ```
+  localhost:3000/sales/1
+  ```
+- Seu retorno será <strong style="color:green">status 200</strong> com a venda, caso a venda não exista no banco, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+
+</details>
+
+#
+### PUT - `localhost:3000/sales/:id`
+- Rota responsável por realizar atualização de uma venda especifica com base em seu *id*.
+<details>
+  <summary>
+    Exemplo:
+  </summary>
+  ⚠️ Necessário uso de um API Client.
+
+  ```
+  localhost:3000/sales/1
+  ```
+- Para realizar a atualização, deve-se enviar um corpo com todos os campos da venda, e realizar a atualização dentro do campo desejado. <br />
+<strong>Campos necessários abaixo: </strong> <br />
+⚠️Nota: É possivel o cadastro de vários produtos à mesma venda, por isso o corpo deve ser em forma de array.
+
+```
+[
+  {
+    "productId": 2,
+    "quantity": 5
+  },
+  ...
+]
+```
+- Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 200 OK</strong> com a venda atualizada, apresentando o o novo dado com seu id.
+- Caso o campo seja inválido ou falte, ele deve retornar <strong style="color:red">status 400 Bad Request</strong> com o campo necessário.
+- Caso seja um id que não existe, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+
+</details>
+
+#
+### DELETE - `localhost:3000/sales/:id`
+- Rota responsável por deletar uma venda especifica com base em seu *id*.
+<details>
+  <summary>
+    Exemplo:
+  </summary>
+  ⚠️ Necessário uso de um API Client.
+
+  ```
+  localhost:3000/sales/1
+  ```
+
+- Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 204 No Content</strong>, sem nenhuma informação.
+- Caso seja um id que não existe, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+
+</details>
+
+#
+### GET - `localhost:3000/sales`
+- Rota responsável por apresentar todas as vendas cadastrados no banco de dados.
+<details>
+  <summary>
+    Exemplo:
+  </summary>
+  ⚠️ Pode ser usado o URL em seu navegador ou um API Client.
+
+  ```
+  localhost:3000/sales
+  ```
+
+- Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 200</strong>, com todas vendas cadastradas no banco.
+
+</details>
+
+#
+### POST - `localhost:3000/sales`
+- Rota responsável por cadastrar uma nova venda ao banco de dados.
+<details>
+  <summary>
+    Exemplo:
+  </summary>
+  ⚠️ Necessário uso de um API Client.
+
+  ```
+  localhost:3000/sales
+  ```
+
+- Para realizar o cadastro, deve-se enviar um corpo com todos os campos do produto.
+<strong>Campos necessários abaixo: </strong> <br />
+⚠️Nota: É possivel o cadastro de vários produtos à mesma venda, por isso o corpo deve ser em forma de array.
+
+  ```
+  [
+    {
+      "productId": 2,
+      "quantity": 5
+    },
+    ...
+  ]
+  ```
+  - Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 204 OK</strong> com a venda cadastrada e seu id.
+  - Caso o campo seja inválido ou falte, ele deve retornar <strong style="color:red">status 400 Bad Request</strong> com o campo necessário.
+  - Caso seja um id que não existe, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+
+</details>
+
+#
+
+# 🚧 /doc
+
+### `localhost:3000/doc`
+- Rota de documentação usando o swagger, em desenvolvimento.
+
+</details>
+
