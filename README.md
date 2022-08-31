@@ -127,6 +127,28 @@ As rodas desenvolvidas no projeto são;
 
 #
 ### PUT - `localhost:3000/products/:id`
+- Rota responsavel por realizar atualização de um item especifico com base em seu *id*.
+<details>
+  <summary>
+    Exemplo:
+  </summary>
+  ⚠️ Necessário uso de um API Client.
+  ```
+  localhost:3000/products/1
+  ```
+  Para realizar a atualização, deve-se enviar um corpo com todos os campos do item, e realizar a atualização dentro do campo desejado.
+```
+  {
+  "name": "Mjölnir"
+  }
+```
+  Se realizado com sucesso seu retorno deve ser do item atualizado, apresentando o o novo dado com seu id.
+  Caso o campo seja invalido ou falte ele deve retornar o campo necessário.
+  Caso seja um id que não existe, seu retorno será `Product not found`
+
+</details>
+
+
 #
 ### DELETE - `localhost:3000/products/:id`
 #
