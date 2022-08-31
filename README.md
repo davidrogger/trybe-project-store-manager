@@ -1,4 +1,4 @@
-# Sobre o Projeto
+# Sobre o Projeto 
 
 Desenvolvido um CRUD de uma API utilizando arquitetura **MSC** (Model Service Controller), de uma loja de super heroes.
 
@@ -12,12 +12,16 @@ Desenvolvido um CRUD de uma API utilizando arquitetura **MSC** (Model Service Co
 <img src="./img/swagger_getProductName.png" width="30%"></img>
 </a>
 
-# Tecnologias usadas
+# Tecnologias e ferramentas usadas 🛠
 
-  <img align="center" alt="dvd-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg"> **Express**
-  <img align="center" alt="dvd-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg"> Javascript
-  <img align="center" alt="dvd-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg"> MYSQL
-  <img align="center" alt="dvd-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mocha/mocha-plain.svg"> Mocha
+![JavaScript](https://img.shields.io/badge/-JavaScript-%23F7DF1C?style=flat-square&logo=javascript&logoColor=000000&labelColor=%23F7DF1C&color=%23FFCE5A)
+![Mocha](https://img.shields.io/badge/-Mocha-896446?style=flat-square&logo=mocha&logoColor=ffffff)
+![Chai](https://img.shields.io/badge/-Chai-a40802?style=flat-square&logo=chai)
+![Sinon](https://img.shields.io/badge/-Sinon-a0d3a4?style=flat-square&logo=sinon)
+![Express](https://img.shields.io/badge/-Express-339999?style=flat-square&logo=express)
+![Joi](https://img.shields.io/badge/-Joi-0080ff?style=flat-square&logo=joi)
+![MySQL](https://img.shields.io/badge/-MySQL-EAA221?style=flat-square&logo=mysql&logoColor=1e4c68)
+![Swagger](https://img.shields.io/badge/-Swagger-85EA2D?style=flat-square&logo=swagger&logoColor=000)
 
 # Desafios
 

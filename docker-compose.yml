@@ -11,12 +11,12 @@ services:
     tty: true
     # Mesmo que `docker run -i`
     stdin_open: true
-    # Substitui o comando padrão da imagem do node
-    command: bash
     # Restarta a imagem caso algo a faça parar
     restart: always
     # Diretório padrão de execução
     working_dir: /home/node/app
+    # Substitui o comando padrão da imagem do node iniciando o projeto
+    command: npm start
     # Lista de volumes (diretórios) mapeados de fora para dentro do container
     volumes:
       # Monta o diretório atual, com todos os dados do projeto, 
