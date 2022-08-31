@@ -36,6 +36,83 @@ Desenvolvido um CRUD de uma API utilizando arquitetura **MSC** (Model Service Co
 Maior desafio foi de como definir os testes iniciais, como escrever de forma clara (usando o inglês para treino do idioma), organizar as funcionalidades em camadas da API usando o conceito de **MSC**, encontrar funcionalidades que facilitariam as validações usando o **joi**, e também entender o que os requisitos dos testes solicitados pela trybe do projeto esperavam no desenvolvimento.
 Quero melhorar algumas partes do projeto na parte de teste, e a parte de documentação do swagger, essa foi a minha primeira vez usando ele, para coletar algumas imagens e aprensentar alguns endpoints.
 
-# Instalando este respositório.
+# Iniciando o Projeto Store Manager.
 
-# 🚧 README em construção 🚧
+Importante: seguir a ordem apresentada a baixo, para o funcionamento.
+
+<details>
+  <summary>
+    <strong>
+      ⚠️ Configurações mínimas para execução do projeto
+    </strong>
+  </summary>
+
+   - Sistema Operacional Distribuição Unix
+ - Node versão 16
+ - Docker
+ - Docker-compose versão >=1.29.2
+ - API Client ([Thunder Client](https://www.thunderclient.com/), [Insomnia](https://insomnia.rest/), [POSTMAN](https://www.postman.com/), ou algum outro de sua preferência)
+
+</details>
+
+<details>
+  <summary>
+    <strong>
+      ⚙️ Variáveis de ambiente
+    </strong>
+  </summary>
+
+Deve-se criar um arquivo .env na raiz do projeto com o seguinte conteúdo:
+```
+MYSQL_HOST=127.0.0.1
+MYSQL_USER=root
+MYSQL_PASSWORD=password
+MYSQL_DATABASE=StoreManager
+PORT=3000
+```
+</details>
+
+<details>
+  <summary>
+    <strong>
+      ⚠️ Inicie o docker-compose
+    </strong>
+  </summary>
+
+Para iniciar o docker compose, você deve dentro da pasta raiz do projeto usar o comando: `docker-compose up -d`
+
+Verifique se os container está funcionando e rodando com o comando `docker ps`. Devem aparecer dois container com o nome de *store_manager* e *store_manager_db*.
+
+</details>
+
+<details>
+  <summary>
+    <strong>
+      🗂 Acessando as Rotas
+    </strong>
+  </summary>
+
+As rodas desenvolvidas nos projetos são às;
+
+## /products
+- GET - localhost:3000/products/search
+- GET - localhost:3000/products/:id
+- PUT - localhost:3000/products/:id
+- DELETE - localhost:3000/products/:id
+- GET - localhost:3000/products
+- POST - localhost:3000/products
+
+## /sales
+
+- GET - localhost:3000/sales/:id
+- PUT - localhost:3000/sales/:id
+- DELETE - localhost:3000/sales/:id
+- GET - localhost:3000/sales
+- POST - localhost:3000/sales
+
+## 🚧 /doc
+
+- localhost:3000/doc
+
+</details>
+
