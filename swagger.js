@@ -38,6 +38,10 @@ const doc = {
     addProduct: {
       name: 'Life Stone',
     },
+    newProduct: {
+      id: 1,
+      name: 'Life Stone',
+    },
     Sales: [
       {
         saleId: 1,

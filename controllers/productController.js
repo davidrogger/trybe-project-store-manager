@@ -8,10 +8,10 @@ const productController = {
   },
   async getById(req, res) {
     /*  #swagger.tags = ['Products']
-        #swagger.description = 'Rota responsavel por procurar um produto com base em seu "ID"'
+        #swagger.description = 'Rota responsavel por procurar um produto com base em seu ID'
         #swagger.parameters['id'] = {
           in: 'path',
-          description = 'ID do produto',
+          description: 'ID do produto',
           required: true,
         }
      */
@@ -37,6 +37,16 @@ const productController = {
     res.status(status.HTTP_OK_CREATED).json(result);
   },
   async update(req, res) {
+    /** #swagger.tags = ['Products']
+        #swagger.description = 'Rota responsavel por atualizar informações de um produto com base em seu ID.'
+        #swagger.parameters['id'] = { in: 'path', description: 'ID do produto' }
+        #swagger.parameters['update'] = {
+          in: 'body',
+          description: 'Dados para atualização do produto',
+          schema: { $ref: "#definitions/addProduct" },
+          required: true
+      }
+    */
     const [{ id }, { name }] = await Promise.all([
       productService.validateId(req.params),
       productService.validateProductBody(req.body),
@@ -44,7 +54,20 @@ const productController = {
     
     await productService.getById(id);
     await productService.update({ id, name });
-
+    /** #swagger.responses[200] = {
+          description: 'Atualizado com sucesso!',
+          schema: { $ref: "#definitions/newProduct" }
+        }
+    
+        #swagger.responses[400] = {
+          description: 'Corpo inválido!',
+        }
+    
+        #swagger.responses[404] = {
+          description: 'ID do produto não encontrado!'
+        }
+    
+     */
     res.status(status.HTTP_OK_REQUEST).json({ id, name });
   },
   async remove(req, res) {

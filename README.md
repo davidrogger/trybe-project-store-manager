@@ -103,7 +103,7 @@ As rodas desenvolvidas no projeto são;
     Exemplo:
   </summary>
 
-  ⚠️ Pode ser usado o URL em seu navegador, um API Client ou acessando a rota `localhost:3000/docs` por intermédio do swagger.
+  ⚠️ Pode ser usado o URL em seu navegador, um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
   <a href="./img/swagger_searchProductName.png">
     <img src="./img/swagger_searchProductName.png" width="30%"></img>
@@ -119,7 +119,7 @@ As rodas desenvolvidas no projeto são;
     Exemplo:
   </summary>
 
-  ⚠️ Pode ser usado o URL em seu navegador, um API Client ou acessando a rota `localhost:3000/docs` por intermédio do swagger
+  ⚠️ Pode ser usado o URL em seu navegador, um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
   <a href="./img/swagger_getProductId.png">
     <img src="./img/swagger_getProductId.png" width="30%"></img>
@@ -134,21 +134,12 @@ As rodas desenvolvidas no projeto são;
   <summary>
     Exemplo:
   </summary>
-  ⚠️ Necessário uso de um API Client.
 
-  ```
-  localhost:3000/products/1
-  ```
-- Para realizar a atualização, deve-se enviar um corpo com os campos do produto, e realizar a atualização dentro do campo desejado. <br />
-  <strong>Campo necessário abaixo:</strong>
-```
-  {
-  "name": "Mjölnir"
-  }
-```
-- Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 200 OK</strong> com o produto atualizado, apresentando o o novo dado com seu id.
-- Caso o campo seja inválido ou falte, ele deve retornar <strong style="color:red">status 400 Bad Request</strong> com o campo necessário.
-- Caso seja um id que não existe, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+  ⚠️ Necessário uso de um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
+
+<a href="./img/swagger_getProductUpdate.png">
+  <img src="./img/swagger_getProductUpdate.png" width="30%"></img>
+</a>
 
 </details>
 

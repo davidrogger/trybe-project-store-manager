@@ -47,13 +47,14 @@
         "tags": [
           "Products"
         ],
-        "description": "Rota responsavel por procurar um produto com base em seu \"ID\"",
+        "description": "Rota responsavel por procurar um produto com base em seu ID",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID do produto"
           }
         ],
         "responses": {
@@ -72,16 +73,42 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Products"
+        ],
+        "description": "Rota responsavel por atualizar informações de um produto com base em seu ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID do produto"
+          },
+          {
+            "name": "update",
+            "in": "body",
+            "description": "Dados para atualização do produto",
+            "schema": {
+              "$ref": "#/definitions/addProduct"
+            },
+            "required": true
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Atualizado com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/newProduct"
+            }
+          },
+          "400": {
+            "description": "Corpo inválido!"
+          },
+          "404": {
+            "description": "ID do produto não encontrado!"
+          }
+        }
       },
       "delete": {
         "description": "",
@@ -192,6 +219,19 @@
     "addProduct": {
       "type": "object",
       "properties": {
+        "name": {
+          "type": "string",
+          "example": "Life Stone"
+        }
+      }
+    },
+    "newProduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
         "name": {
           "type": "string",
           "example": "Life Stone"
