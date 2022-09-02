@@ -7,8 +7,28 @@ const productController = {
     res.status(status.HTTP_OK_REQUEST).json(result);
   },
   async getById(req, res) {
+    /*  #swagger.tags = ['Products']
+        #swagger.description = 'Rota responsavel por procurar um produto com base em seu "ID"'
+        #swagger.parameters['id'] = {
+          in: 'path',
+          description = 'ID do produto',
+          required: true,
+        }
+     */
     const { id } = await productService.validateId(req.params);
     const result = await productService.getById(id);
+    /*  #swagger.responses[200] = {
+      schema: { $ref: "#/definitions/Product" },
+      description: 'Produto encontrado!'
+    }
+        #swagger.responses[404] = {
+          description: 'Produto não encontrado!'
+        }
+
+        #swagger.responses[422] = {
+          description: 'O "ID" deve ser um número'
+        }
+    */
     res.status(status.HTTP_OK_REQUEST).json(result);
   },
   async add(req, res) {

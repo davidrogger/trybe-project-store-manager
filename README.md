@@ -118,12 +118,12 @@ As rodas desenvolvidas no projeto são;
   <summary>
     Exemplo:
   </summary>
-  ⚠️ Pode ser usado o URL em seu navegador ou um API Client.
 
-  ```
-  localhost:3000/products/1
-  ```
-- Seu retorno será <strong style="color:green">status 200</strong> com o produto id 1, caso o ele não exista no banco, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+  ⚠️ Pode ser usado o URL em seu navegador, um API Client ou acessando a rota `localhost:3000/docs` por intermédio do swagger
+
+  <a href="./img/swagger_getProductId.png">
+    <img src="./img/swagger_getProductId.png" width="30%"></img>
+  </a>
 
 </details>
 

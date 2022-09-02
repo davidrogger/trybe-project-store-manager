@@ -44,7 +44,10 @@
     },
     "/products/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Products"
+        ],
+        "description": "Rota responsavel por procurar um produto com base em seu \"ID\"",
         "parameters": [
           {
             "name": "id",
@@ -53,7 +56,20 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Product"
+            },
+            "description": "Produto encontrado!"
+          },
+          "404": {
+            "description": "Produto não encontrado!"
+          },
+          "422": {
+            "description": "O \"ID\" deve ser um número"
+          }
+        }
       },
       "put": {
         "description": "",
