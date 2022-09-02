@@ -3,13 +3,13 @@
 Desenvolvido um CRUD de uma API utilizando arquitetura **MSC** (Model Service Controller), de uma loja de super heroes.
 
 <a href="./img/swagger_allroutes.png">
-  <img src="./img/swagger_allroutes.png" width="60%"></img>
+  <img src="./img/swagger_allroutes.png" width="30%"></img>
 </a>
-<a href="./img/swagger_getProductId.png">
-  <img src="./img/swagger_getProductId.png" width="60%"></img>
+<a href="./img/swagger_getSaleAll.png">
+  <img src="./img/swagger_getSaleAll.png" width="30%"></img>
 </a>
-<a href="./img/swagger_getProductName.png">
-  <img src="./img/swagger_getProductName.png" width="60%"></img>
+<a href="./img/swagger_getProductAll.png">
+  <img src="./img/swagger_getProductAll.png" width="30%"></img>
 </a>
 
 # Tecnologias e ferramentas usadas 🛠
