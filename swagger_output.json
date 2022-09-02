@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Project Store Manager",
-    "description": "Meu primeiro CRUD API usando Arquitetura MSC. by Davíd Roggér"
+    "title": "Project Storage Manager",
+    "description": "Meu primeiro CRUD API aplicando arquitetura MSC"
   },
   "host": "localhost:3000",
   "basePath": "/",
@@ -26,17 +26,18 @@
         "tags": [
           "Products"
         ],
-        "description": "Endpoint para encontrar um produto por seu nome",
+        "description": "Rota responsável por procurar um produto por alguma palavra  ou letra em seu nome.",
         "parameters": [
           {
             "name": "q",
             "in": "query",
+            "description": "<p>Insira a palavra ou letra do nome do produto que deseja procurar.</p>  <ul>  <li>Caso omitido retorna todos produtos.</li>  <li>Caso Não encontre um produto correspondente a palavra procurada retorna uma lista vazia.</li>  </ul>  ",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Busca realizada com sucesso!"
           }
         }
       }
@@ -46,21 +47,28 @@
         "tags": [
           "Products"
         ],
-        "description": "Endpoint para encontrar um produto por seu 'ID'",
+        "description": "Rota responsável por procurar um produto com base no ID fornecido.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID do produto"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "schema": {
+              "$ref": "#/definitions/Product"
+            },
+            "description": "Produto encontrado!"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Produto não encontrado!"
+          },
+          "422": {
+            "description": "O \"ID\" deve ser um número"
           }
         }
       },
@@ -68,17 +76,68 @@
         "tags": [
           "Products"
         ],
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "description": "Rota responsável por atualizar informações de um produto com base no ID fornecido.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID do produto"
+          },
+          {
+            "name": "update",
+            "in": "body",
+            "description": "Dados para atualização do produto",
+            "schema": {
+              "$ref": "#/definitions/addProduct"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Atualizado com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/newProduct"
+            }
+          },
+          "400": {
+            "description": "Corpo inválido!"
+          },
+          "404": {
+            "description": "ID do produto não encontrado!"
+          },
+          "422": {
+            "description": "O \"ID\" deve ser um número"
+          }
+        }
       },
       "delete": {
         "tags": [
           "Products"
         ],
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "description": "Rota responsável por remover um produto com base no ID fornecido.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID do produto"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Produto removido com sucesso"
+          },
+          "404": {
+            "description": "ID do produto não encontrado!"
+          },
+          "422": {
+            "description": "O \"ID\" deve ser um número"
+          }
+        }
       }
     },
     "/products/": {
@@ -86,17 +145,41 @@
         "tags": [
           "Products"
         ],
-        "description": "",
+        "description": "Rota responsável por mostrar todos os produtos cadastrados.",
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Busca realizada com sucesso!"
+          }
+        }
       },
       "post": {
         "tags": [
           "Products"
         ],
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "description": "Rota responsável por cadastrar/adicionar um produto novo.",
+        "parameters": [
+          {
+            "name": "newProduct",
+            "in": "body",
+            "description": "Deve ser fornecido um corpo com as informações obrigatórias para o cadastro do produto.",
+            "schema": {
+              "$ref": "#/definitions/addProduct"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto cadastrado com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/newProduct"
+            }
+          },
+          "400": {
+            "description": "Corpo inválido!"
+          }
+        }
       }
     },
     "/sales/{id}": {
@@ -104,25 +187,97 @@
         "tags": [
           "Sales"
         ],
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "description": "Rota responsável por procurar uma venda com base no ID fornecido.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID da venda"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Encontrado com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/Sale"
+            }
+          },
+          "404": {
+            "description": "ID da venda não encontrada!"
+          },
+          "422": {
+            "description": "O \"ID\" deve ser um número"
+          }
+        }
       },
       "put": {
         "tags": [
           "Sales"
         ],
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "description": "Rota responsável por atualizar uma venda com base no ID fornecido.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID da venda"
+          },
+          {
+            "name": "newSale",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/addSale"
+            },
+            "description": "Cada venda pode possuir vários produtos diferentes, por isso o corpo fornecido tem forma de lista(array), com todos os produtos da venda."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Atualizado com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/addSale"
+            }
+          },
+          "400": {
+            "description": "Corpo ou algum campo inválido para atualização!"
+          },
+          "404": {
+            "description": "ID de venda não encontrado!"
+          },
+          "422": {
+            "description": "O \"ID\" deve ser um número"
+          }
+        }
       },
       "delete": {
         "tags": [
           "Sales"
         ],
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "description": "Rota responsavel por deletar/remover uma venda com base no ID fornecido.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID da venda"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Venda removida com sucesso"
+          },
+          "404": {
+            "description": "ID da venda não encontrada!"
+          },
+          "422": {
+            "description": "O \"ID\" deve ser um número"
+          }
+        }
       }
     },
     "/sales/": {
@@ -130,17 +285,114 @@
         "tags": [
           "Sales"
         ],
-        "description": "",
+        "description": "Rota responsável por coletar todas as vendas cadastradas.",
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Busca realizada com sucesso!"
+          }
+        }
       },
       "post": {
         "tags": [
           "Sales"
         ],
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "description": "Rota responsável por criar uma nova venda",
+        "parameters": [
+          {
+            "name": "newSale",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/addSale"
+            },
+            "required": true,
+            "description": "Corpo para requisição de cadastro/criação, deve ser enviado em forma de array, com todos os produtos e quantidades definidos."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Venda cadastrada com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/addSale"
+            }
+          },
+          "400": {
+            "description": "Corpo inválido!"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "Martelo de Thor"
+        }
+      }
+    },
+    "addProduct": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Life Stone"
+        }
+      }
+    },
+    "newProduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "Life Stone"
+        }
+      }
+    },
+    "Sale": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "example": "2022-09-02T20:03:53.000Z"
+          },
+          "productId": {
+            "type": "number",
+            "example": 1
+          },
+          "quantity": {
+            "type": "number",
+            "example": 5
+          }
+        }
+      }
+    },
+    "addSale": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "number",
+            "example": 2
+          },
+          "quantity": {
+            "type": "number",
+            "example": 5
+          }
+        }
       }
     }
   }
