@@ -3,13 +3,13 @@
 Desenvolvido um CRUD de uma API utilizando arquitetura **MSC** (Model Service Controller), de uma loja de super heroes.
 
 <a href="./img/swagger_allroutes.png">
-  <img src="./img/swagger_allroutes.png" width="30%"></img>
+  <img src="./img/swagger_allroutes.png" width="60%"></img>
 </a>
 <a href="./img/swagger_getProductId.png">
-  <img src="./img/swagger_getProductId.png" width="30%"></img>
+  <img src="./img/swagger_getProductId.png" width="60%"></img>
 </a>
 <a href="./img/swagger_getProductName.png">
-  <img src="./img/swagger_getProductName.png" width="30%"></img>
+  <img src="./img/swagger_getProductName.png" width="60%"></img>
 </a>
 
 # Tecnologias e ferramentas usadas 🛠
@@ -106,7 +106,7 @@ As rodas desenvolvidas no projeto são;
   ⚠️ Pode ser usado o URL em seu navegador, um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
   <a href="./img/swagger_searchProductName.png">
-    <img src="./img/swagger_searchProductName.png" width="30%"></img>
+    <img src="./img/swagger_searchProductName.png" width="60%"></img>
   </a>
 
 </details>
@@ -122,7 +122,7 @@ As rodas desenvolvidas no projeto são;
   ⚠️ Pode ser usado o URL em seu navegador, um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
   <a href="./img/swagger_getProductId.png">
-    <img src="./img/swagger_getProductId.png" width="30%"></img>
+    <img src="./img/swagger_getProductId.png" width="60%"></img>
   </a>
 
 </details>
@@ -138,7 +138,7 @@ As rodas desenvolvidas no projeto são;
   ⚠️ Necessário uso de um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
 <a href="./img/swagger_getProductUpdate.png">
-  <img src="./img/swagger_getProductUpdate.png" width="30%"></img>
+  <img src="./img/swagger_getProductUpdate.png" width="60%"></img>
 </a>
 
 </details>
@@ -151,14 +151,12 @@ As rodas desenvolvidas no projeto são;
   <summary>
     Exemplo:
   </summary>
-  ⚠️ Necessário uso de um API Client.
 
-  ```
-  localhost:3000/products/1
-  ```
+  ⚠️ Necessário uso de um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
-- Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 204 No Content</strong>, sem nenhuma informação.
-- Caso seja um id que não existe, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+  <a href="./img/swagger_getProductDelete.png">
+    <img src="./img/swagger_getProductDelete.png" width="60%"></img>
+  </a>
 
 </details>
 

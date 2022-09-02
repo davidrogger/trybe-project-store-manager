@@ -8,7 +8,7 @@ const productController = {
   },
   async getById(req, res) {
     /*  #swagger.tags = ['Products']
-        #swagger.description = 'Rota responsavel por procurar um produto com base em seu ID'
+        #swagger.description = 'Rota responsavel por procurar um produto com base no ID fornecido.'
         #swagger.parameters['id'] = {
           in: 'path',
           description: 'ID do produto',
@@ -38,7 +38,7 @@ const productController = {
   },
   async update(req, res) {
     /** #swagger.tags = ['Products']
-        #swagger.description = 'Rota responsavel por atualizar informações de um produto com base em seu ID.'
+        #swagger.description = 'Rota responsavel por atualizar informações de um produto com base no ID fornecido.'
         #swagger.parameters['id'] = { in: 'path', description: 'ID do produto' }
         #swagger.parameters['update'] = {
           in: 'body',
@@ -66,14 +66,35 @@ const productController = {
         #swagger.responses[404] = {
           description: 'ID do produto não encontrado!'
         }
+
+        #swagger.responses[422] = {
+          description: 'O "ID" deve ser um número'
+        }
     
      */
     res.status(status.HTTP_OK_REQUEST).json({ id, name });
   },
   async remove(req, res) {
+    /*  #swagger.tags = ['Products']
+        #swagger.description = 'Rota responsavel por remover um produto com base no ID fornecido.'
+        #swagger.parameters['id'] = { in: 'path', description: 'ID do produto' }
+     */
     const { id } = await productService.validateId(req.params);
     await productService.getById(id);
     await productService.remove({ id });
+
+    /*  #swagger.responses[204] = {
+          description: 'Produto removido com sucesso'
+        }
+        
+        #swagger.responses[404] = {
+          description: 'ID do produto não encontrado!'
+        }
+
+        #swagger.responses[422] = {
+          description: 'O "ID" deve ser um número'
+        }
+     */
     res.status(status.HTTP_NO_CONTENT).json();
   },
   async getByName(req, res) {

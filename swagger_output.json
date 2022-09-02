@@ -47,7 +47,7 @@
         "tags": [
           "Products"
         ],
-        "description": "Rota responsavel por procurar um produto com base em seu ID",
+        "description": "Rota responsavel por procurar um produto com base no ID fornecido.",
         "parameters": [
           {
             "name": "id",
@@ -76,7 +76,7 @@
         "tags": [
           "Products"
         ],
-        "description": "Rota responsavel por atualizar informações de um produto com base em seu ID.",
+        "description": "Rota responsavel por atualizar informações de um produto com base no ID fornecido.",
         "parameters": [
           {
             "name": "id",
@@ -107,20 +107,37 @@
           },
           "404": {
             "description": "ID do produto não encontrado!"
+          },
+          "422": {
+            "description": "O \"ID\" deve ser um número"
           }
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Products"
+        ],
+        "description": "Rota responsavel por remover um produto com base no ID fornecido.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID do produto"
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "Produto removido com sucesso"
+          },
+          "404": {
+            "description": "ID do produto não encontrado!"
+          },
+          "422": {
+            "description": "O \"ID\" deve ser um número"
+          }
+        }
       }
     },
     "/products/": {
