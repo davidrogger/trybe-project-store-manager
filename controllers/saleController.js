@@ -10,7 +10,29 @@ const saleController = {
     res.status(status.HTTP_OK_REQUEST).json(result);
   },
   async getById(req, res) {
+    /*  #swagger.tags = ['Sales']
+        #swagger.description = 'Rota responsável por procurar uma venda com base no ID fornecido.'
+     */
     const result = await saleService.getById(req.params);
+
+    /*  #swagger.parameters['id'] = {
+          in: 'path',
+          required: true,
+          description: 'ID da venda'
+    }
+        #swagger.responses[200] = {
+          description: 'Encontrado com sucesso!',
+          schema: { $ref: '#/definitions/Sale' }
+        }
+    
+        #swagger.responses[404] = {
+          description: 'ID da venda não encontrada!'
+        }
+
+        #swagger.responses[422] = {
+          description: 'O "ID" deve ser um número'
+        }
+     */
     res.status(status.HTTP_OK_REQUEST).json(result);
   },
   async add(req, res) {

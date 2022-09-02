@@ -17,20 +17,6 @@ const doc = {
     },
   ],
   definitions: {
-    Products: [
-      {
-        id: 1,
-        name: 'Martelo de Thor',
-      },
-      {
-        id: 2,
-        name: 'Traje de encolhimento',
-      },
-      {
-        id: 3,
-        name: 'Escudo do Capitão América',
-      },
-    ],
     Product: {
       id: 1,
       name: 'Martelo de Thor',
@@ -42,24 +28,11 @@ const doc = {
       id: 1,
       name: 'Life Stone',
     },
-    Sales: [
+    Sale: [
       {
-        saleId: 1,
-        date: '2022-09-01T21:08:18.000Z',
+        date: '2022-09-02T20:03:53.000Z',
         productId: 1,
         quantity: 5,
-      },
-      {
-        saleId: 1,
-        date: '2022-09-01T21:08:18.000Z',
-        productId: 2,
-        quantity: 10,
-      },
-      {
-        saleId: 2,
-        date: '2022-09-01T21:08:18.000Z',
-        productId: 3,
-        quantity: 15,
       },
     ],
     addSale: [

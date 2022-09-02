@@ -200,12 +200,11 @@ As rodas desenvolvidas no projeto são;
   <summary>
     Exemplo:
   </summary>
-  ⚠️ Pode ser usado o URL em seu navegador ou um API Client.
+  ⚠️ Pode ser usado o URL em seu navegador, um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
-  ```
-  localhost:3000/sales/1
-  ```
-- Seu retorno será <strong style="color:green">status 200</strong> com a venda, caso a venda não exista no banco, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+  <a href="./img/swagger_getSaleId.png">
+    <img src="./img/swagger_getSaleId.png" width="60%"></img>
+  </a>
 
 </details>
 

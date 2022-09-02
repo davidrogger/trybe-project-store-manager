@@ -184,16 +184,33 @@
     },
     "/sales/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Sales"
+        ],
+        "description": "Rota responsável por procurar uma venda com base no ID fornecido.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID da venda"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Encontrado com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/Sale"
+            }
+          },
+          "404": {
+            "description": "ID da venda não encontrada!"
+          },
+          "422": {
+            "description": "O \"ID\" deve ser um número"
+          }
+        }
       },
       "put": {
         "description": "",
@@ -234,22 +251,6 @@
     }
   },
   "definitions": {
-    "Products": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number",
-            "example": 3
-          },
-          "name": {
-            "type": "string",
-            "example": "Escudo do Capitão América"
-          }
-        }
-      }
-    },
     "Product": {
       "type": "object",
       "properties": {
@@ -285,26 +286,22 @@
         }
       }
     },
-    "Sales": {
+    "Sale": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "saleId": {
-            "type": "number",
-            "example": 2
-          },
           "date": {
             "type": "string",
-            "example": "2022-09-01T21:08:18.000Z"
+            "example": "2022-09-02T20:03:53.000Z"
           },
           "productId": {
             "type": "number",
-            "example": 3
+            "example": 2
           },
           "quantity": {
             "type": "number",
-            "example": 15
+            "example": 10
           }
         }
       }
