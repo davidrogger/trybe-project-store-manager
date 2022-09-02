@@ -213,16 +213,45 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Sales"
+        ],
+        "description": "Rota responsável por atualizar uma venda com base no ID fornecido.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID da venda"
+          },
+          {
+            "name": "newSale",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/addSale"
+            },
+            "description": "Cada venda pode possuir vários produtos diferentes, por isso o corpo fornecido tem forma de lista(array), com todos os produtos da venda."
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Atualizado com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/addSale"
+            }
+          },
+          "400": {
+            "description": "Corpo ou algum campo inválido para atualização!"
+          },
+          "404": {
+            "description": "ID de venda não encontrado!"
+          },
+          "422": {
+            "description": "O \"ID\" deve ser um número"
+          }
+        }
       },
       "delete": {
         "description": "",
@@ -297,11 +326,11 @@
           },
           "productId": {
             "type": "number",
-            "example": 2
+            "example": 1
           },
           "quantity": {
             "type": "number",
-            "example": 10
+            "example": 5
           }
         }
       }

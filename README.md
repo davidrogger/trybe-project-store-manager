@@ -200,6 +200,7 @@ As rodas desenvolvidas no projeto são;
   <summary>
     Exemplo:
   </summary>
+
   ⚠️ Pode ser usado o URL em seu navegador, um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
   <a href="./img/swagger_getSaleId.png">
@@ -215,27 +216,12 @@ As rodas desenvolvidas no projeto são;
   <summary>
     Exemplo:
   </summary>
-  ⚠️ Necessário uso de um API Client.
 
-  ```
-  localhost:3000/sales/1
-  ```
-- Para realizar a atualização, deve-se enviar um corpo com todos os campos da venda, e realizar a atualização dentro do campo desejado. <br />
-<strong>Campos necessários abaixo: </strong> <br />
-⚠️Nota: É possivel o cadastro de vários produtos à mesma venda, por isso o corpo deve ser em forma de array.
+  ⚠️ Necessário uso de um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
-```
-[
-  {
-    "productId": 2,
-    "quantity": 5
-  },
-  ...
-]
-```
-- Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 200 OK</strong> com a venda atualizada, apresentando o o novo dado com seu id.
-- Caso o campo seja inválido ou falte, ele deve retornar <strong style="color:red">status 400 Bad Request</strong> com o campo necessário.
-- Caso seja um id que não existe, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+  <a href="./img/swagger_getSaleUpdate.png">
+    <img src="./img/swagger_getSaleUpdate.png" width="60%"></img>
+  </a>
 
 </details>
 
