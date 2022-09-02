@@ -3,13 +3,13 @@
 Desenvolvido um CRUD de uma API utilizando arquitetura **MSC** (Model Service Controller), de uma loja de super heroes.
 
 <a href="./img/swagger_allroutes.png">
-<img src="./img/swagger_allroutes.png" width="30%"></img>
+  <img src="./img/swagger_allroutes.png" width="30%"></img>
 </a>
 <a href="./img/swagger_getProductId.png">
-<img src="./img/swagger_getProductId.png" width="30%"></img>
+  <img src="./img/swagger_getProductId.png" width="30%"></img>
 </a>
 <a href="./img/swagger_getProductName.png">
-<img src="./img/swagger_getProductName.png" width="30%"></img>
+  <img src="./img/swagger_getProductName.png" width="30%"></img>
 </a>
 
 # Tecnologias e ferramentas usadas 🛠
@@ -102,12 +102,12 @@ As rodas desenvolvidas no projeto são;
   <summary>
     Exemplo:
   </summary>
-  ⚠️ Pode ser usado o URL em seu navegador ou um API Client.
 
-  ```
-  localhost:3000/products/search?q=thor
-  ```
-- Seu retorno será <strong style="color:green">status 200 OK</strong> com qualquer produto que tenha em seu nome contendo `thor`.
+  ⚠️ Pode ser usado o URL em seu navegador, um API Client ou acessando a rota `localhost:3000/docs` por intermédio do swagger.
+
+  <a href="./img/swagger_searchProductName.png">
+    <img src="./img/swagger_searchProductName.png" width="30%"></img>
+  </a>
 
 </details>
 

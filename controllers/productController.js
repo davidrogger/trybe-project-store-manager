@@ -34,7 +34,27 @@ const productController = {
     res.status(status.HTTP_NO_CONTENT).json();
   },
   async getByName(req, res) {
+    /*  #swagger.tags = ['Products']
+        #swagger.description = 'Rota responsavel por procurar um produto por alguma palavra
+          ou letra em seu nome.' */
+
     const result = await productService.getByName(req.query);
+
+    /*  #swagger.parameters['q'] = {
+      in: 'query',
+      description: '<p>Insira a palavra ou letra do nome do produto que deseja procurar.</p>
+      <ul>
+        <li>Caso omitido retorna todos produtos.</li>
+        <li>Caso Não encontre um produto correspondente a palavra procurada retorna uma lista vazia.</li>
+      </ul>
+      ',
+    }
+      */
+
+    /* #swagger.responses[200] = {
+      description: "Busca realizada com sucesso!"
+      }
+      */
     res.status(status.HTTP_OK_REQUEST).json(result);
   },
 };

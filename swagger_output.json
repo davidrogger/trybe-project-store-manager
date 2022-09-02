@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Project Store Manager",
-    "description": "Meu primeiro CRUD API usando Arquitetura MSC. by Davíd Roggér"
+    "title": "Project Storage Manager",
+    "description": "Meu primeiro CRUD API aplicando arquitetura MSC"
   },
   "host": "localhost:3000",
   "basePath": "/",
@@ -26,27 +26,25 @@
         "tags": [
           "Products"
         ],
-        "description": "Endpoint para encontrar um produto por seu nome",
+        "description": "Rota responsavel por procurar um produto por alguma palavra  ou letra em seu nome.",
         "parameters": [
           {
             "name": "q",
             "in": "query",
+            "description": "<p>Insira a palavra ou letra do nome do produto que deseja procurar.</p>  <ul>  <li>Caso omitido retorna todos produtos.</li>  <li>Caso Não encontre um produto correspondente a palavra procurada retorna uma lista vazia.</li>  </ul>  ",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Busca realizada com sucesso!"
           }
         }
       }
     },
     "/products/{id}": {
       "get": {
-        "tags": [
-          "Products"
-        ],
-        "description": "Endpoint para encontrar um produto por seu 'ID'",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -55,45 +53,40 @@
             "type": "string"
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
+        "responses": {}
       },
       "put": {
-        "tags": [
-          "Products"
-        ],
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {}
       },
       "delete": {
-        "tags": [
-          "Products"
-        ],
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {}
       }
     },
     "/products/": {
       "get": {
-        "tags": [
-          "Products"
-        ],
         "description": "",
         "parameters": [],
         "responses": {}
       },
       "post": {
-        "tags": [
-          "Products"
-        ],
         "description": "",
         "parameters": [],
         "responses": {}
@@ -101,46 +94,132 @@
     },
     "/sales/{id}": {
       "get": {
-        "tags": [
-          "Sales"
-        ],
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {}
       },
       "put": {
-        "tags": [
-          "Sales"
-        ],
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {}
       },
       "delete": {
-        "tags": [
-          "Sales"
-        ],
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {}
       }
     },
     "/sales/": {
       "get": {
-        "tags": [
-          "Sales"
-        ],
         "description": "",
         "parameters": [],
         "responses": {}
       },
       "post": {
-        "tags": [
-          "Sales"
-        ],
         "description": "",
         "parameters": [],
         "responses": {}
+      }
+    }
+  },
+  "definitions": {
+    "Products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 3
+          },
+          "name": {
+            "type": "string",
+            "example": "Escudo do Capitão América"
+          }
+        }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "Martelo de Thor"
+        }
+      }
+    },
+    "addProduct": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Life Stone"
+        }
+      }
+    },
+    "Sales": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "saleId": {
+            "type": "number",
+            "example": 2
+          },
+          "date": {
+            "type": "string",
+            "example": "2022-09-01T21:08:18.000Z"
+          },
+          "productId": {
+            "type": "number",
+            "example": 3
+          },
+          "quantity": {
+            "type": "number",
+            "example": 15
+          }
+        }
+      }
+    },
+    "addSale": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "number",
+            "example": 2
+          },
+          "quantity": {
+            "type": "number",
+            "example": 5
+          }
+        }
       }
     }
   }
