@@ -168,7 +168,7 @@ As rodas desenvolvidas no projeto são;
     Exemplo:
   </summary>
 
-  ⚠️ Pode ser usado o URL em seu navegador ou um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
+  ⚠️ Pode ser usado o URL em seu navegador, um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
   <a href="./img/swagger_getProductAll.png">
     <img src="./img/swagger_getProductAll.png" width="60%"></img>
@@ -183,22 +183,12 @@ As rodas desenvolvidas no projeto são;
   <summary>
     Exemplo:
   </summary>
-  ⚠️ Necessário uso de um API Client.
 
-  ```
-  localhost:3000/products
-  ```
+  ⚠️ Necessário uso de um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
-- Para realizar o cadastro, deve-se enviar um corpo com todos os campos do produto.
-
-  ```
-    {
-    "name": "Stone Glove"
-    }
-  ```
-  - Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 204 OK</strong> com o produto cadastrado e seu id.
-  - Caso o campo seja inválido ou falte, ele deve retornar <strong style="color:red">status 400 Bad Request</strong> com o campo necessário.
-  - Caso seja um id que não existe, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+  <a href="./img/swagger_getProductAdd.png">
+    <img src="./img/swagger_getProductAdd.png" width="60%"></img>
+  </a>
 
 </details>
 

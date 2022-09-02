@@ -154,9 +154,32 @@
         }
       },
       "post": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "tags": [
+          "Products"
+        ],
+        "description": "Rota responsável por cadastrar/adicionar um produto novo.",
+        "parameters": [
+          {
+            "name": "newProduct",
+            "in": "body",
+            "description": "Deve ser fornecido um corpo com as informações obrigatórias para o cadastro do produto.",
+            "schema": {
+              "$ref": "#/definitions/addProduct"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto cadastrado com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/newProduct"
+            }
+          },
+          "400": {
+            "description": "Corpo inválido!"
+          }
+        }
       }
     },
     "/sales/{id}": {

@@ -37,8 +37,27 @@ const productController = {
     res.status(status.HTTP_OK_REQUEST).json(result);
   },
   async add(req, res) {
+    /*  #swagger.tags = ['Products']
+        #swagger.description = 'Rota responsável por cadastrar/adicionar um produto novo.'
+        #swagger.parameters['newProduct'] = {
+          in: 'body',
+          description: 'Deve ser fornecido um corpo com as informações obrigatórias para o cadastro do produto.',
+          schema: { $ref: '#/definitions/addProduct' },
+          required: true
+        }
+     */
     const product = await productService.validateProductBody(req.body);
     const result = await productService.add(product);
+
+    /*  #swagger.responses[200] = {
+      description: 'Produto cadastrado com sucesso!',
+      schema: { $ref: '#/definitions/newProduct' }
+    }
+
+        #swagger.responses[400] = {
+          description: 'Corpo inválido!'
+        }
+     */
     res.status(status.HTTP_OK_CREATED).json(result);
   },
   async update(req, res) {
