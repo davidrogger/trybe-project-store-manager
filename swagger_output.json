@@ -282,14 +282,44 @@
     },
     "/sales/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Sales"
+        ],
+        "description": "Rota responsável por coletar todas as vendas cadastradas.",
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Busca realizada com sucesso!"
+          }
+        }
       },
       "post": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "tags": [
+          "Sales"
+        ],
+        "description": "Rota responsável por criar uma nova venda",
+        "parameters": [
+          {
+            "name": "newSale",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/addSale"
+            },
+            "required": true,
+            "description": "Corpo para requisição de cadastro/criação, deve ser enviado em forma de array, com todos os produtos e quantidades definidos."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Venda cadastrada com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/addSale"
+            }
+          },
+          "400": {
+            "description": "Corpo inválido!"
+          }
+        }
       }
     }
   },

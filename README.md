@@ -248,13 +248,12 @@ As rodas desenvolvidas no projeto são;
   <summary>
     Exemplo:
   </summary>
-  ⚠️ Pode ser usado o URL em seu navegador ou um API Client.
 
-  ```
-  localhost:3000/sales
-  ```
+  ⚠️ Pode ser usado o URL em seu navegador, um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
-- Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 200</strong>, com todas vendas cadastradas no banco.
+  <a href="./img/swagger_getSaleAll.png">
+    <img src="./img/swagger_getSaleAll.png" width="60%"></img>
+  </a>
 
 </details>
 
@@ -265,37 +264,17 @@ As rodas desenvolvidas no projeto são;
   <summary>
     Exemplo:
   </summary>
-  ⚠️ Necessário uso de um API Client.
 
-  ```
-  localhost:3000/sales
-  ```
+  ⚠️ Necessário uso de um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
-- Para realizar o cadastro, deve-se enviar um corpo com todos os campos do produto.
-<strong>Campos necessários abaixo: </strong> <br />
-⚠️Nota: É possivel o cadastro de vários produtos à mesma venda, por isso o corpo deve ser em forma de array.
-
-  ```
-  [
-    {
-      "productId": 2,
-      "quantity": 5
-    },
-    ...
-  ]
-  ```
-  - Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 204 OK</strong> com a venda cadastrada e seu id.
-  - Caso o campo seja inválido ou falte, ele deve retornar <strong style="color:red">status 400 Bad Request</strong> com o campo necessário.
-  - Caso seja um id que não existe, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+  <a href="./img/swagger_addSale.png">
+    <img src="./img/swagger_addSale.png" width="60%"></img>
+  </a>
 
 </details>
 
-#
+# 🚧  Finalizando ajustes de docker-compose e container
 
-# 🚧 /doc
-
-### `localhost:3000/doc`
-- Rota de documentação usando o swagger, em desenvolvimento.
 
 </details>
 
