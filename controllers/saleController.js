@@ -42,9 +42,26 @@ const saleController = {
     res.status(status.HTTP_OK_CREATED).json(result);
   },
   async remove(req, res) {
+    /*  #swagger.tags = ['Sales']
+        #swagger.description = 'Rota responsavel por deletar/remover uma venda com base no ID fornecido.'
+        #swagger.parameters['id'] = { in: 'path', description: 'ID da venda' }
+     */
     const { id } = await validate.id(req.params);
     await saleService.getById({ id });
     await saleService.remove({ id });
+
+    /*  #swagger.responses[204] = {
+      description: 'Venda removida com sucesso'
+    }
+
+    #swagger.responses[404] = {
+      description: 'ID da venda não encontrada!'
+    }
+
+    #swagger.responses[422] = {
+      description: 'O "ID" deve ser um número'
+    }
+  */
     res.status(status.HTTP_NO_CONTENT).json();
   },
   async update(req, res) {

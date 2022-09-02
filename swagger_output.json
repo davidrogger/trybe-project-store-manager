@@ -254,16 +254,30 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Sales"
+        ],
+        "description": "Rota responsavel por deletar/remover uma venda com base no ID fornecido.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID da venda"
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "Venda removida com sucesso"
+          },
+          "404": {
+            "description": "ID da venda não encontrada!"
+          },
+          "422": {
+            "description": "O \"ID\" deve ser um número"
+          }
+        }
       }
     },
     "/sales/": {

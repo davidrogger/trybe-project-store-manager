@@ -232,14 +232,12 @@ As rodas desenvolvidas no projeto são;
   <summary>
     Exemplo:
   </summary>
-  ⚠️ Necessário uso de um API Client.
 
-  ```
-  localhost:3000/sales/1
-  ```
+  ⚠️ Necessário uso de um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
-- Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 204 No Content</strong>, sem nenhuma informação.
-- Caso seja um id que não existe, seu retorno será <strong style="color:red">status 404 Not Found</strong>.
+  <a href="./img/swagger_getSaleDelete.png">
+    <img src="./img/swagger_getSaleDelete.png" width="60%"></img>
+  </a>
 
 </details>
 
