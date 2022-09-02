@@ -3,12 +3,17 @@ const status = require('../helpers/status');
 
 const productController = {
   async getAll(_req, res) {
+    /*  #swagger.tags = ['Products']
+        #swagger.description = 'Rota responsável por mostrar todos os produtos cadastrados.'
+     */
     const result = await productService.getAll();
+
+    // #swagger.responses[200] = { description: 'Busca realizada com sucesso!' }
     res.status(status.HTTP_OK_REQUEST).json(result);
   },
   async getById(req, res) {
     /*  #swagger.tags = ['Products']
-        #swagger.description = 'Rota responsavel por procurar um produto com base no ID fornecido.'
+        #swagger.description = 'Rota responsável por procurar um produto com base no ID fornecido.'
         #swagger.parameters['id'] = {
           in: 'path',
           description: 'ID do produto',
@@ -38,7 +43,7 @@ const productController = {
   },
   async update(req, res) {
     /** #swagger.tags = ['Products']
-        #swagger.description = 'Rota responsavel por atualizar informações de um produto com base no ID fornecido.'
+        #swagger.description = 'Rota responsável por atualizar informações de um produto com base no ID fornecido.'
         #swagger.parameters['id'] = { in: 'path', description: 'ID do produto' }
         #swagger.parameters['update'] = {
           in: 'body',
@@ -76,7 +81,7 @@ const productController = {
   },
   async remove(req, res) {
     /*  #swagger.tags = ['Products']
-        #swagger.description = 'Rota responsavel por remover um produto com base no ID fornecido.'
+        #swagger.description = 'Rota responsável por remover um produto com base no ID fornecido.'
         #swagger.parameters['id'] = { in: 'path', description: 'ID do produto' }
      */
     const { id } = await productService.validateId(req.params);
@@ -86,7 +91,7 @@ const productController = {
     /*  #swagger.responses[204] = {
           description: 'Produto removido com sucesso'
         }
-        
+
         #swagger.responses[404] = {
           description: 'ID do produto não encontrado!'
         }
@@ -99,7 +104,7 @@ const productController = {
   },
   async getByName(req, res) {
     /*  #swagger.tags = ['Products']
-        #swagger.description = 'Rota responsavel por procurar um produto por alguma palavra
+        #swagger.description = 'Rota responsável por procurar um produto por alguma palavra
           ou letra em seu nome.' */
 
     const result = await productService.getByName(req.query);

@@ -167,13 +167,12 @@ As rodas desenvolvidas no projeto são;
   <summary>
     Exemplo:
   </summary>
-  ⚠️ Pode ser usado o URL em seu navegador ou um API Client.
 
-  ```
-  localhost:3000/products
-  ```
+  ⚠️ Pode ser usado o URL em seu navegador ou um API Client ou acessando a rota `localhost:3000/docs` em seu navegador.
 
-- Se realizado com sucesso seu retorno deve ser <strong style="color:green">status 200</strong>, com todos itens cadastrados no banco.
+  <a href="./img/swagger_getProductAll.png">
+    <img src="./img/swagger_getProductAll.png" width="60%"></img>
+  </a>
 
 </details>
 

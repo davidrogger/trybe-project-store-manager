@@ -26,7 +26,7 @@
         "tags": [
           "Products"
         ],
-        "description": "Rota responsavel por procurar um produto por alguma palavra  ou letra em seu nome.",
+        "description": "Rota responsável por procurar um produto por alguma palavra  ou letra em seu nome.",
         "parameters": [
           {
             "name": "q",
@@ -47,7 +47,7 @@
         "tags": [
           "Products"
         ],
-        "description": "Rota responsavel por procurar um produto com base no ID fornecido.",
+        "description": "Rota responsável por procurar um produto com base no ID fornecido.",
         "parameters": [
           {
             "name": "id",
@@ -76,7 +76,7 @@
         "tags": [
           "Products"
         ],
-        "description": "Rota responsavel por atualizar informações de um produto com base no ID fornecido.",
+        "description": "Rota responsável por atualizar informações de um produto com base no ID fornecido.",
         "parameters": [
           {
             "name": "id",
@@ -117,7 +117,7 @@
         "tags": [
           "Products"
         ],
-        "description": "Rota responsavel por remover um produto com base no ID fornecido.",
+        "description": "Rota responsável por remover um produto com base no ID fornecido.",
         "parameters": [
           {
             "name": "id",
@@ -142,9 +142,16 @@
     },
     "/products/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Products"
+        ],
+        "description": "Rota responsável por mostrar todos os produtos cadastrados.",
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Busca realizada com sucesso!"
+          }
+        }
       },
       "post": {
         "description": "",
