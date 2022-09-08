@@ -274,6 +274,3 @@ As rodas desenvolvidas no projeto são;
 </details>
 
 </details>
-
-# 🚧  Finalizando ajustes de docker-compose e container
-
