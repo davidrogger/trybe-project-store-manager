@@ -18,6 +18,7 @@ Desenvolvido um CRUD de uma API utilizando arquitetura **MSC** (Model Service Co
 ![Mocha](https://img.shields.io/badge/-Mocha-896446?style=flat-square&logo=mocha&logoColor=ffffff)
 ![Chai](https://img.shields.io/badge/-Chai-a40802?style=flat-square&logo=chai)
 ![Sinon](https://img.shields.io/badge/-Sinon-a0d3a4?style=flat-square&logo=sinon)
+![Docker](https://img.shields.io/badge/-Docker-003f8c?style=flat-square&logo=docker&logoColor=fff)
 ![Express](https://img.shields.io/badge/-Express-339999?style=flat-square&logo=express)
 ![Joi](https://img.shields.io/badge/-Joi-0080ff?style=flat-square&logo=joi)
 ![MySQL](https://img.shields.io/badge/-MySQL-EAA221?style=flat-square&logo=mysql&logoColor=1e4c68)
