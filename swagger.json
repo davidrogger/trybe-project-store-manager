@@ -1,25 +1,10 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.0.0",
   "info": {
     "version": "1.0.0",
     "title": "Project Storage Manager",
-    "description": "Meu primeiro CRUD API aplicando arquitetura MSC"
+    "description": "Primeira API aplicando arquitetura MSC."
   },
-  "host": "localhost:3000",
-  "basePath": "/",
-  "tags": [
-    {
-      "name": "Products",
-      "description": "Endpoints"
-    },
-    {
-      "name": "Sales",
-      "description": "Endpoints"
-    }
-  ],
-  "schemes": [
-    "http"
-  ],
   "paths": {
     "/products/search": {
       "get": {
@@ -32,7 +17,9 @@
             "name": "q",
             "in": "query",
             "description": "<p>Insira a palavra ou letra do nome do produto que deseja procurar.</p>  <ul>  <li>Caso omitido retorna todos produtos.</li>  <li>Caso Não encontre um produto correspondente a palavra procurada retorna uma lista vazia.</li>  </ul>  ",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -50,11 +37,13 @@
         "description": "Rota responsável por procurar um produto com base no ID fornecido.",
         "parameters": [
           {
+            "description": "ID do produto",
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "ID do produto"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {

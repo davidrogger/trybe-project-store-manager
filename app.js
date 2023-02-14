@@ -1,7 +1,7 @@
 require('express-async-errors');
 const express = require('express');
 const swaggerUi = require('swagger-ui-express');
-const swaggerFile = require('./swagger_output.json');
+const swaggerFile = require('./swagger.json');
 
 const app = express();
 const productRouter = require('./routers/productRouter');
