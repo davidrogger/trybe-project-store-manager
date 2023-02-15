@@ -169,14 +169,27 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
 
   ## GET - `localhost:3000/products/search`
 
-  > - Rota responsável por realizar uma consultas por qualquer palavra inclusa em um nome de produto., usando o sinal de `?q=NomeDesejado` após search.
-  > - Para buscar um produto, é necessário realizar uma requisição usando o parametro q seguindo do nome que deseja localizar.
+  > - Rota responsável por realizar uma consultas por qualquer palavra inclusa em um nome de produto.
+  > - Para buscar um produto, é necessário realizar uma requisição usando o parametro `q` seguindo do nome que deseja filtrar.
   > ### Exemplo:
   >```
   >localhost:3000/products/search?q=Martelo
   >```
   > ### Status:
   > - **`200`**: Retorna com um json com uma lista com o filtro da palavra usada, caso não encontre nada, retorna uma lista vazia.
+
+  ## GET - `localhost:3000/products/:id`
+
+  > - Rota responsável por realizar uma consulta do produto por seu *id*.
+  > - Para buscar um produto, é necessário realizar uma requisição usando o parametro com o ID.
+  > ### Exemplo:
+  >```
+  >localhost:3000/products/1
+  >```
+  > ### Status:
+  > - **`200`**: Retorna um json com detalhes do produto referente há aquele ID.
+  > - **`404`**: Retorna um json com a mensagem `Product not found`.
+  > - **`422`**: Retorna um json com a mensagem `"id" must be a number`.
 
   </details>
 
@@ -308,7 +321,7 @@ As rodas desenvolvidas no projeto são;
 
 #
 ### GET - `localhost:3000/products/:id`
-- Rota responsável por realizar uma consulta por um produto especifico com base em seu *id*.
+- 
 <details>
   <summary>
     Exemplo:
