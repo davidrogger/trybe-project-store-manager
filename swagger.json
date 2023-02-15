@@ -223,17 +223,19 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "newSale",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/addSale"
-            },
-            "description": "Cada venda pode possuir vários produtos diferentes, por isso o corpo fornecido tem forma de lista(array), com todos os produtos da venda."
           }
         ],
+        "requestBody": {
+          "required": true,
+          "description": "Cada venda pode possuir vários produtos diferentes, por isso o corpo fornecido tem forma de lista(array), com todos os produtos da venda.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/addSale"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Atualizado com sucesso!",
