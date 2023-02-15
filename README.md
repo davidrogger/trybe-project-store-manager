@@ -286,6 +286,19 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
   > - **`404`**: Retorna um json com a mensagem `Sale not found`.
   > - **`422`**: Retorna um json com a mensagem `"id" must be a number`.
 
+  ## DELETE - `localhost:3000/sales/:id`
+
+  > - Rota responsável por deletar uma venda.
+  > - Para deletar uma venda, é necessário realizar uma requisição DELETE usando o parametro com o ID da venda.
+  > ### Exemplo:
+  >```
+  >localhost:3000/sales/1
+  >```
+  > ### Status:
+  > - **`204`**: Em caso de sucesso, retorna somente o status 204(no content).
+  > - **`404`**: Retorna um json com a mensagem `Product not found`.
+  > - **`422`**: Retorna um json com a mensagem `"id" must be a number`.
+
   ## GET - `localhost:3000/sales`
 
   > - Rota responsável mostrar todas vendas cadastradas.
