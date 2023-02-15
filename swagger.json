@@ -325,6 +325,16 @@
       }
     }
   },
+  "components": {
+    "schemas": {
+      "Product": {
+        "$ref": "#/definitions/Product"
+      },
+      "Sale": {
+        "$ref": "#/definitions/Sale"
+      }
+    }
+  },
   "definitions": {
     "Product": {
       "type": "object",
