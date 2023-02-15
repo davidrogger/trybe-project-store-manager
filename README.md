@@ -194,16 +194,17 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
   ## PUT - `localhost:3000/products/:id`
 
   > - Rota responsável por realizar atualização no produto por seu *id*.
-  > - Para atualizar o produto, é necessário realizar uma requisição PUT usando o parametro com o ID, `localhost:3000/products/1` e um json com um corpo válido.
+  > - Para atualizar o produto, é necessário realizar uma requisição PUT usando o parametro com o ID, `localhost:3000/products/n` e um json com um corpo válido.
   > ### Exemplo:
   >```
+  > localhost:3000/products/1
   >{
   >  "name": "Life Stone"
   >}
   >```
   > ### Status:
   > - **`200`**: Retorna um json com o produto atualizado.
-  > - **`400`**: Retorna um json com a mensagem `"name" is required`.
+  > - **`400`**: Retorna um json com a mensagem de qual campo está incorreto para requisição.
   > - **`404`**: Retorna um json com a mensagem `Product not found`.
   > - **`422`**: Retorna um json com a mensagem `"id" must be a number`.
 
@@ -245,20 +246,6 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
   > - **`200`**: Retorna um json com o id e nome do produto cadastrado.
   > - **`400`**: Retorna um json com a mensagem `"name" is required`.
 
-  ## PUT - `localhost:3000/sales/:id`
-
-  > - Rota responsável por realizar uma consulta do produto por seu *id*.
-  > - Para buscar um produto, é necessário realizar uma requisição usando o parametro com o ID.
-  > ### Exemplo:
-  >```
-  >localhost:3000/products/1
-  >```
-  > ### Status:
-  > - **`200`**: Retorna um json com o produto atualizado.
-  > - **`400`**: Retorna um json com a mensagem `"name" is required`.
-  > - **`404`**: Retorna um json com a mensagem `Product not found`.
-  > - **`422`**: Retorna um json com a mensagem `"id" must be a number`.
-
   </details>
 
   <details>
@@ -276,6 +263,26 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
   >```
   > ### Status:
   > - **`200`**: Retorna um json com detalhes da venda do ID.
+  > - **`404`**: Retorna um json com a mensagem `Sale not found`.
+  > - **`422`**: Retorna um json com a mensagem `"id" must be a number`.
+
+  ## PUT - `localhost:3000/sales/:id`
+
+  > - Rota responsável por realizar atualização na venda por seu *id*.
+  > - Para atualizar a venda, é necessário realizar uma requisição PUT usando o parametro com o ID, `localhost:3000/sales/n` e um json com um corpo válido de uma lista contendo todos produtos e suas atualizações.
+  > ### Exemplo:
+  > localhost:3000/sales/1
+  >```
+  >[
+  >  {
+  >    "productId": 2,
+  >    "quantity": 5
+  >  }
+  >]
+  >```
+  > ### Status:
+  > - **`200`**: Retorna um json com o produto atualizado.
+  > - **`400`**: Retorna um json com a mensagem de qual campo está incorreto para requisição.
   > - **`404`**: Retorna um json com a mensagem `Sale not found`.
   > - **`422`**: Retorna um json com a mensagem `"id" must be a number`.
 
