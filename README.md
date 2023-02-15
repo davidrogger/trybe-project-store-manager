@@ -255,7 +255,7 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
 
   ## GET - `localhost:3000/sales/:id`
 
-  > - Rota responsável por realizar uma consulta de venda por seu *id*.
+  > - Rota responsável por mostrar detalhes de venda por seu *id*.
   > - Para buscar a venda, é necessário realizar uma requisição GET usando o parametro com o ID.
   > ### Exemplo:
   >```
