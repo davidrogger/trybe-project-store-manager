@@ -5,7 +5,7 @@ const status = require('../../../helpers/status');
 const saleController = require('../../../controllers/saleController');
 const saleService = require('../../../services/saleService');
 const productService = require('../../../services/productService');
-const validate = require('../../../services/validator');
+const { validate } = require('../../../services/validationService');
 
 const { rightSaleBody } = require('../../dataMock');
 
@@ -26,7 +26,7 @@ describe('Testing saleController UPDATE', () => {
         response.json = stub().returns();
 
         stub(validate, 'id').resolves({ id: 1 });
-        stub(saleService, 'validateProductSale').resolves({ sales: rightSaleBody});
+        stub(validate, 'productSalesBody').resolves({ sales: rightSaleBody});
         stub(productService, 'getById').resolves();
         stub(saleService, 'getById').resolves();
         stub(saleService, 'update').resolves(saleUpdatedResponse);
@@ -34,7 +34,7 @@ describe('Testing saleController UPDATE', () => {
       });
       after(() => {
         validate.id.restore();
-        saleService.validateProductSale.restore();
+        validate.productSalesBody.restore();
         saleService.getById.restore();
         productService.getById.restore();
         saleService.update.restore();

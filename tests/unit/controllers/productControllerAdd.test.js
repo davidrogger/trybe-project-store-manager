@@ -7,6 +7,7 @@ const status = require('../../../helpers/status');
 
 const productController = require('../../../controllers/productController');
 const productService = require('../../../services/productService');
+const { validate } = require('../../../services/validationService');
 
 describe('Testing productControler ADD', () => {
   const request = {};
@@ -17,11 +18,11 @@ describe('Testing productControler ADD', () => {
       response.status = stub().returns(response);
       response.json = stub().returns();
 
-      stub(productService, 'validateProductBody').resolves(rightProductBody)
+      stub(validate, 'productBody').resolves(rightProductBody)
       stub(productService, 'add').resolves(productCreateResponse)
     })
     after(() => {
-      productService.validateProductBody.restore();
+      validate.productBody.restore();
       productService.add.restore();
     })
     it('Should response 201 with a json "id" 4 and name "Produto1"', async () => {
