@@ -185,11 +185,13 @@
         "description": "Rota responsável por procurar uma venda com base no ID fornecido.",
         "parameters": [
           {
+            "required": true,
+            "description": "ID da venda",
             "name": "id",
             "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "ID da venda"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
