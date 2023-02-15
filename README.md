@@ -204,7 +204,7 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
   >```
   > ### Status:
   > - **`200`**: Retorna um json com o produto atualizado.
-  > - **`400`**: Retorna um json com a mensagem de qual campo está incorreto para requisição.
+  > - **`400`**: Retorna um json com a mensagem indicando qual campo está incorreto no corpo da requisição.
   > - **`404`**: Retorna um json com a mensagem `Product not found`.
   > - **`422`**: Retorna um json com a mensagem `"id" must be a number`.
 
