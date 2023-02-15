@@ -195,89 +195,10 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
 
   <details>
   <summary>
-      <span>Endpoint <code>/talker</code></span>
+      <span>Endpoint <code>/sales</code></span>
   </summary>
 
-  ## GET - `localhost:3000/talker`
-
-  >- Rota responsável por apresentar todos palestrantes cadastrados.
-  > - **`200`**: Em caso de sucesso, retorna com um json todos palestrantes cadastrados.
-
-  ## POST - `localhost:3000/talker`
-
-  > - Rota responsável por cadastrar palestrantes.
-  > - É necessário adicionar ao headers o token para executar esta requisição.
-  > - Para cadastrar um palestrante, é necessário realizar uma requisição com um corpo json contendo os seguindos dados.
-  > - **`name`**: Nome deve conter no mínimo 3 caracteres.
-  > - **`age`**: Idade deve ser um número maior que 18, pois os palestrantes devem ser maiores de 18 anos.
-  > - **`talk`**: Deve ser um objecto contento seguintes chaves:
-  >     - **`watchedAt`**: Deve conter a data da apresentação seguindo uma formatação `dd/mm/aaaa`
-  >     - **`rate`**: Deve ser uma nota entre 1 e 5.
-  > ### Exemplo:
-  >```
-  >{
-  >  "name": "Jonas Doe",
-  >  "age": "30",
-  >  "talk": {
-  >   "watchedAt": "10/02/2023",
-  >   "rate": "4"
-  >  }
-  >}
-  >```
-  > ### Status:
-  > - **`201`**: Em caso de sucesso, com um json com os dados cadastrados contendo o id do palestrante.
-  > - **`400`**: Caso algum campo não esteja preenchido ou esteja fora do padrão.
-  > - **`401`**: Quando o acesso não é autorizado, faltando definir um token para acesso.
-
-  ## GET - `localhost:3000/talker/search`
-
-  > - Rota responsável por buscar palestrante por nome.
-  > - É necessário adicionar ao headers o token para executar esta requisição.
-  > - Para buscar um palestrante, é necessário realizar uma requisição usando o parametro q seguindo do nome que deseja localizar.
-  > ### Exemplo:
-  >```
-  >localhost:3000/talker/search?q=Henrique
-  >```
-  > ### Status:
-  > - **`200`**: Em caso de sucesso, retorna um json todos palestrantes que contém o nome usado no parametro. Caso seja passado um parametro vazio `?q=`, é retornado todos palestrantes cadastrados.
-  > - **`401`**: Quando o acesso não é autorizado, faltando definir um token para acesso.
-
-  ## GET - `localhost:3000/talker/:id`
-
-  > - Rota responsável por buscar palestrante pelo ID.
-  > - Para buscar um ID, é necessário realizar uma requisição usando o parametro apontando o ID que deseja localizar.
-  > ### Exemplo:
-  >```
-  >localhost:3000/talker/1
-  >```
-  > ### Status:
-  > - **`200`**: Em caso de sucesso, retorna com um json com os dados do ID indicado no parametro.
-  > - **`404`**: Quando o ID não é encontrato.
-
-  ## PUT - `localhost:3000/talker/:id`
-
-  > - Rota responsável por atualizar dados do palestrante pelo ID.
-  > - É necessário adicionar ao headers o token para executar esta requisição.
-  > - Para atualizar, é necessário realizar uma requisição usando o parametro apontando o ID que deseja localizar com um corpo json com todos dados do palestrante seguindo o mesmo modelo json usado para cadastrar um novo palestrante.
-  > ### Status:
-  > - **`200`**: Em caso de sucesso, retorna com um json com os dados cadastrados atualizados do palestrante.
-  > - **`400`**: Caso algum campo não esteja preenchido ou esteja fora do padrão.
-  > - **`401`**: Quando o acesso não é autorizado, faltando definir um token para acesso.
-    > - **`404`**: Quando o ID não é encontrato.
-
-  ## DELETE - `localhost:3000/talker/:id`
-
-  > - Rota responsável por deletar cadastro do palestrante pelo ID.
-  > - É necessário adicionar ao headers o token para executar esta requisição.
-  > - Para deletar, é necessário realizar uma requisição usando o parametro apontando o ID que deseja deletar.
-  > ### Exemplo:
-  >```
-  >localhost:3000/talker/1
-  >```
-  > ### Status:
-  > - **`204`**: Em caso de sucesso, retorna somente o status 204(no content).
-  > - **`401`**: Quando o acesso não é autorizado, faltando definir um token para acesso.
-  > - **`404`**: Quando o ID não é encontrato.
+  ## GET - `localhost:3000/sales/:id`
 
   </details>
 
