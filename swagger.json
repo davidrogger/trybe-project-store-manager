@@ -277,7 +277,7 @@
         }
       }
     },
-    "/sales/": {
+    "/sales": {
       "get": {
         "tags": [
           "Sales"
