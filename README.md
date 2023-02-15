@@ -253,6 +253,17 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
 
   ## GET - `localhost:3000/sales/:id`
 
+  > - Rota responsável por realizar uma consulta de venda por seu *id*.
+  > - Para buscar a venda, é necessário realizar uma requisição GET usando o parametro com o ID.
+  > ### Exemplo:
+  >```
+  >localhost:3000/sales/1
+  >```
+  > ### Status:
+  > - **`200`**: Retorna um json com detalhes da venda do ID.
+  > - **`404`**: Retorna um json com a mensagem `Sale not found`.
+  > - **`422`**: Retorna um json com a mensagem `"id" must be a number`.
+
   </details>
 
   </details>
