@@ -157,7 +157,7 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
       </strong>
     </summary>
 
-  >Existem duas formas de acessar e testar as rotas:
+  >Para acessar e testar as rotas:
   >1. Usando algum API Cliente, conforme citado nas configurações mínimas.
   >2. Acessando a documentação gerada pelo swagger `localhost:3000/api-docs`.
   >3. Usando teste automatizado no terminal,  `docker exec -it store_manager npm run test:mocha`
