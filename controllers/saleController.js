@@ -51,7 +51,7 @@ const saleController = {
           description: 'Corpo para requisição de cadastro/criação, deve ser enviado em forma de array, com todos os produtos e quantidades definidos.'
         }
      */
-    const { sales } = await saleService.validateProductSale({ sales: req.body });
+    const { sales } = await validate.productSalesBody({ sales: req.body });
     await Promise.all(sales.map(({ productId }) => productService.getById(productId)));
     const result = await saleService.add(sales);
         /*  #swagger.responses[200] = {
@@ -100,7 +100,7 @@ const saleController = {
         }
      */
     const { id } = await validate.id(req.params);
-    const { sales } = await saleService.validateProductSale({ sales: req.body });
+    const { sales } = await validate.productSalesBody({ sales: req.body });
     await Promise.all(sales.map(({ productId }) => productService.getById(productId)));
     await saleService.getById({ id });
     const result = await saleService.update({ id, sales });
