@@ -181,7 +181,7 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
   ## GET - `localhost:3000/products/:id`
 
   > - Rota responsável por realizar uma consulta do produto por seu *id*.
-  > - Para buscar um produto, é necessário realizar uma requisição usando o parametro com o ID.
+  > - Para buscar um produto, é necessário realizar uma requisição GET usando o parametro com o ID.
   > ### Exemplo:
   >```
   >localhost:3000/products/1
