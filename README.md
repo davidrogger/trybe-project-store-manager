@@ -2,7 +2,7 @@
 
 ## Seção: `Arquitetura de Software MSC`
 
-- lore
+- Introdução ao modelo arquitetural baseado em camadas, MSC(Model, Service e Controller), ganhando qualidade, facilidade de manutenção, pois o código é organizado agrupando as partes que possuem responsabilidades similares em um mesmo lugar.
 
 #
 <div align="center">
