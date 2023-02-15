@@ -169,8 +169,8 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
 
   ## GET - `localhost:3000/products/search`
 
-  > - Rota responsável por realizar uma consultas por qualquer palavra inclusa em um nome de produto.
-  > - Para buscar um produto, é necessário realizar uma requisição usando o parametro `q` seguindo do nome que deseja filtrar.
+  > - Rota responsável por realizar consultas por qualquer palavra inclusa em um nome de produto.
+  > - Para buscar, é necessário realizar uma requisição GET usando o parametro `q` seguindo do nome que deseja filtrar.
   > ### Exemplo:
   >```
   >localhost:3000/products/search?q=Martelo
