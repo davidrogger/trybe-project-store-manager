@@ -288,17 +288,20 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
 
   ## POST - `localhost:3000/sales`
 
-  > - Rota responsável por realizar uma consulta do produto por seu *id*.
-  > - Para cadastrar um produto, é necessário realizar uma requisição POST para URL: `localhost:3000/products` contendo um corpo json com o nome do produto.
+  > - Rota responsável por cadastrar uma nova venda.
+  > - Para cadastrar uma venda, é necessário realizar uma requisição POST para URL: `localhost:3000/sales` contendo um corpo json com os detalhes da venda.
   > ### Exemplo:
   >```
-  >{
-  >  "name": "Life Stone"
-  >}
+  >[
+  >  {
+  >    "productId": 2,
+  >    "quantity": 5
+  >  }
+  >]
   >```
   > ### Status:
-  > - **`200`**: Retorna um json com o id e nome do produto cadastrado.
-  > - **`400`**: Retorna um json com a mensagem `"name" is required`.
+  > - **`200`**: Retorna um json com o id e detalhes da venda.
+  > - **`400`**: Retorna um json com a mensagem de qual campo está incorreto para requisição.
 
   </details>
 
