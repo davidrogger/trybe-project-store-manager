@@ -116,8 +116,10 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "ID do produto"
+            "description": "ID do produto",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
