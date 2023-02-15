@@ -9,7 +9,6 @@ const status = require('../../../helpers/status');
 describe('Testing productController UPDATE', () => {
   const request = {};
   const response = {};
-  // describe('When the data to update is invalid', () => {})
 
   before(async () => {
     response.status = stub().returns(response);

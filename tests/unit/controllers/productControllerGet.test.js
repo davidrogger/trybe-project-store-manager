@@ -51,29 +51,7 @@ describe('Testing productController GET', () => {
       });
     });
 
-  describe('Using getById', () => {
-    // describe('When the id isn\'t a number', () => {
-    //   before(async () => {
-    //     request.params = { id: 'idNotValid' };
-
-    //     request.status = stub().returns(response);
-    //     request.json = stub().returns();
-
-    //     stub(productService, 'getById').rejects();
-    //   });
-    //   after(() => {
-    //     productService.getById.restore();
-    //   })
-
-    //   it('Should throw an error "ValidationError" with a message ""id" should be a number"', () => {
-    //     try {
-    //       await productController.getById(request, response);
-    //     } catch (error) {
-          
-    //     }
-    //   })
-    // });
-    
+  describe('Using getById', () => {    
     describe('When the id is a number', () => {
       before(async () => {
         request.params = { id: 1 };

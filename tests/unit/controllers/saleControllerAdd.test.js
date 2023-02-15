@@ -13,7 +13,6 @@ describe('Testing saleController ADD', () => {
   const request = {};
   const response = {};
   describe('When add a sale', () => { 
-    // describe('When the product information is invalid', () => { });
     describe('When the product information is valid', () => {
       before(async () => {
         request.body = rightSaleBody;

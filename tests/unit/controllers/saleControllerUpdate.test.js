@@ -18,7 +18,6 @@ describe('Testing saleController UPDATE', () => {
   const request = {};
   const response = {};
   describe('When updating a sale', () => { 
-    // describe('When the product information is invalid', () => { });
     describe('When the product information is valid', () => {
       before(async () => {
         request.body = rightSaleBody;
