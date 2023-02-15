@@ -1,5 +1,6 @@
 const productService = require('../services/productService');
 const status = require('../helpers/status');
+const { validate } = require('../services/validationService');
 
 const productController = {
   async getAll(_req, res) {
@@ -20,7 +21,7 @@ const productController = {
           required: true,
         }
      */
-    const { id } = await productService.validateId(req.params);
+    const { id } = await validate.id(req.params);
     const result = await productService.getById(id);
     /*  #swagger.responses[200] = {
       schema: { $ref: "#/definitions/Product" },
@@ -46,7 +47,7 @@ const productController = {
           required: true
         }
      */
-    const product = await productService.validateProductBody(req.body);
+    const product = await validate.productBody(req.body);
     const result = await productService.add(product);
 
     /*  #swagger.responses[200] = {
@@ -72,8 +73,8 @@ const productController = {
       }
     */
     const [{ id }, { name }] = await Promise.all([
-      productService.validateId(req.params),
-      productService.validateProductBody(req.body),
+      validate.id(req.params),
+      validate.productBody(req.body),
     ]);
     
     await productService.getById(id);

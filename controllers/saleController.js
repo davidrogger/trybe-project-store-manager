@@ -2,7 +2,7 @@ const status = require('../helpers/status');
 const saleService = require('../services/saleService');
 const productService = require('../services/productService');
 
-const validate = require('../services/validator');
+const { validate } = require('../services/validationService');
 
 const saleController = {
   async getAll(_req, res) { 
@@ -18,7 +18,8 @@ const saleController = {
     /*  #swagger.tags = ['Sales']
         #swagger.description = 'Rota responsável por procurar uma venda com base no ID fornecido.'
      */
-    const result = await saleService.getById(req.params);
+    const id = await validate.id(req.params);
+    const result = await saleService.getById(id);
 
     /*  #swagger.parameters['id'] = {
           in: 'path',
