@@ -11,7 +11,7 @@ const errorHandler = require('./middlewares/errorHandler');
 app.use(express.json());
 app.use('/products', productRouter);
 app.use('/sales', saleRouter);
-app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use(errorHandler);
 
 module.exports = app;
