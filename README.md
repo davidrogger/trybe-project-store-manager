@@ -6,13 +6,13 @@
 
 #
 <div align="center">
-  <a href="https://raw.githubusercontent.com/davidrogger/trybe-project-talker-manager/readme-update/readme-imgs/project_top.webp">
+  <a href="https://raw.githubusercontent.com/davidrogger/trybe-project-store-manager/readme-update/readme-imgs/project_top.webp">
     <img height="350px" width="30%" src="./readme-imgs/project_top.webp">
   </a>
-  <a href="https://raw.githubusercontent.com/davidrogger/trybe-project-talker-manager/readme-update/readme-imgs/project_mid.webp">
+  <a href="https://raw.githubusercontent.com/davidrogger/trybe-project-store-manager/readme-update/readme-imgs/project_mid.webp">
     <img height="350px" width="30%" src="./readme-imgs/project_mid.webp">
   </a>
-  <a href="https://raw.githubusercontent.com/davidrogger/trybe-project-talker-manager/readme-update/readme-imgs/project_bot.webp">
+  <a href="https://raw.githubusercontent.com/davidrogger/trybe-project-store-manager/readme-update/readme-imgs/project_bot.webp">
     <img height="350px" width="30%" src="./readme-imgs/project_bot.webp">
   </a>
 </div>
