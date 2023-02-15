@@ -287,7 +287,6 @@
           "Sales"
         ],
         "description": "Rota responsável por coletar todas as vendas cadastradas.",
-        "parameters": [],
         "responses": {
           "200": {
             "description": "Busca realizada com sucesso!"
