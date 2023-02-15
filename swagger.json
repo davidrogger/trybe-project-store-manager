@@ -133,7 +133,7 @@
         }
       }
     },
-    "/products/": {
+    "/products": {
       "get": {
         "tags": [
           "Products"
@@ -151,17 +151,17 @@
           "Products"
         ],
         "description": "Rota responsável por cadastrar/adicionar um produto novo.",
-        "parameters": [
-          {
-            "name": "newProduct",
-            "in": "body",
-            "description": "Deve ser fornecido um corpo com as informações obrigatórias para o cadastro do produto.",
-            "schema": {
-              "$ref": "#/definitions/addProduct"
-            },
-            "required": true
+        "requestBody": {
+          "required": true,
+          "description": "Deve ser fornecido um corpo com as informações obrigatórias para o cadastro do produto.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/addProduct"
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "Produto cadastrado com sucesso!",
