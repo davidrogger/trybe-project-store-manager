@@ -19,12 +19,25 @@ describe('Testing validationService', () => {
       }
     });
   });
-  describe('Validating an "productBody"', () => {
-    describe("When the body is valid", () => {});
-    describe("When the body is invalid", () => {});
+
+  describe('Validating a "productBody"', () => {
+    it("Should return the product body when the body is valid", async () => {
+      const product = { name: "Testing Weapon" };
+      const validateBody = await validate.productBody(product);
+      expect(validateBody).to.be.deep.equal(product);
+    });
+    it("Should throw an error when the body is invalid", async () => {
+      try {
+        await validate.productBody({})
+      } catch (error) {
+        expect(error.name).to.be.equal("ValidationError");
+        expect(error.message).to.be.equal('"name" is required');
+      }
+    });
   });
-  describe('Validating an "productSalesBody"', () => {
-    describe("When the body is valid", () => {});
-    describe("When the body is invalid", () => {});
+
+  describe('Validating a "productSalesBody"', () => {
+    it("Should return the sales body when the body is valid", async () => {});
+    it("Should throw an error when the body is invalid", async () => {});
   });
 });
