@@ -167,23 +167,16 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
     <span>Endpoint <code>/products</code></span>
   </summary>
 
-  ## POST - `localhost:3000/login`
+  ## GET - `localhost:3000/products/search`
 
-  > - Rota responsável por gerar um token, para acesso de algumas rotas da API.
-  > - Para gerar o token é necessário realizar uma requisição POST para URL: `localhost:3000/login` contendo um corpo json, com um e-mail e senha válidos.
-  > - **`E-mail`** é considerado válido quando ele segue um padrão de uma string sem limites de caracteres seguindo de `@` com outra string sem limites, com um ponto `.`, e após o ponto uma string com limite de 4 caracteres. `string@string.4str`.
-  > - **`Senha`** é considerada válida quando possuir mais ou igual a 6 caracteres.
-  >
+  > - Rota responsável por realizar uma consultas por qualquer palavra inclusa em um nome de produto., usando o sinal de `?q=NomeDesejado` após search.
+  > - Para buscar um produto, é necessário realizar uma requisição usando o parametro q seguindo do nome que deseja localizar.
   > ### Exemplo:
   >```
-  >{
-  >  "email": "emailvalido@email.com",
-  >  "password": "123456"
-  >}
+  >localhost:3000/products/search?q=Martelo
   >```
   > ### Status:
-  > - **`200`**: Em caso de sucesso, retorna com um json com um token valido.
-  > - **`400`**: Caso algum campo não esteja preenchido ou esteja fora do padrão.
+  > - **`200`**: Retorna com um json com uma lista com o filtro da palavra usada, caso não encontre nada, retorna uma lista vazia.
 
   </details>
 
@@ -289,20 +282,6 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
 
 
 
-
-<details>
-  <summary>
-    <strong>
-      ⚠️ Inicie o docker-compose
-    </strong>
-  </summary>
-
-Para iniciar o docker compose, você deve dentro da pasta raiz do projeto usar o comando: `docker-compose up -d`
-
-Verifique se os container está funcionando e rodando com o comando `docker ps`. Devem aparecer dois container com o nome de *store_manager* e *store_manager_db*.
-
-</details>
-
 <details>
   <summary>
     <strong>
@@ -313,8 +292,6 @@ Verifique se os container está funcionando e rodando com o comando `docker ps`.
 As rodas desenvolvidas no projeto são;
 
 # /products
-### GET - `localhost:3000/products/search`
-- Rota responsável por realizar uma consultas por qualquer palavra inclusa em um nome de produto, usando o sinal de `?q=NomeDesejado` após search.
 
 <details>
   <summary>
