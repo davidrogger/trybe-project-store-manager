@@ -1,6 +1,7 @@
 const { expect } = require('chai');
 const { stub } = require('sinon');
 const productService = require('../../../services/productService');
+const { validate } = require('../../../services/validationService');
 const productController = require('../../../controllers/productController');
 
 const status = require('../../../helpers/status');
@@ -8,20 +9,19 @@ const status = require('../../../helpers/status');
 describe('Testing productController UPDATE', () => {
   const request = {};
   const response = {};
-  // describe('When the data to update is invalid', () => {})
 
   before(async () => {
     response.status = stub().returns(response);
     response.json = stub().returns();
 
-    stub(productService, 'validateId').resolves({ id: 1 });
-    stub(productService, 'validateProductBody').resolves({ name: 'Product Change' });
+    stub(validate, 'id').resolves({ id: 1 });
+    stub(validate, 'productBody').resolves({ name: 'Product Change' });
     stub(productService, 'getById').resolves();
     stub(productService, 'update').resolves();
   });
   after(() => {
-    productService.validateId.restore();
-    productService.validateProductBody.restore();
+    validate.id.restore();
+    validate.productBody.restore();
     productService.getById.restore();
     productService.update.restore();
   });

@@ -1,25 +1,10 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.0.0",
   "info": {
     "version": "1.0.0",
     "title": "Project Storage Manager",
-    "description": "Meu primeiro CRUD API aplicando arquitetura MSC"
+    "description": "Primeira API aplicando arquitetura MSC."
   },
-  "host": "localhost:3000",
-  "basePath": "/",
-  "tags": [
-    {
-      "name": "Products",
-      "description": "Endpoints"
-    },
-    {
-      "name": "Sales",
-      "description": "Endpoints"
-    }
-  ],
-  "schemes": [
-    "http"
-  ],
   "paths": {
     "/products/search": {
       "get": {
@@ -32,7 +17,9 @@
             "name": "q",
             "in": "query",
             "description": "<p>Insira a palavra ou letra do nome do produto que deseja procurar.</p>  <ul>  <li>Caso omitido retorna todos produtos.</li>  <li>Caso Não encontre um produto correspondente a palavra procurada retorna uma lista vazia.</li>  </ul>  ",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -50,11 +37,13 @@
         "description": "Rota responsável por procurar um produto com base no ID fornecido.",
         "parameters": [
           {
+            "description": "ID do produto",
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "ID do produto"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -82,19 +71,23 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "ID do produto"
-          },
-          {
-            "name": "update",
-            "in": "body",
-            "description": "Dados para atualização do produto",
             "schema": {
-              "$ref": "#/definitions/addProduct"
+              "type": "string"
             },
-            "required": true
+            "description": "ID do produto"
           }
         ],
+        "requestBody": {
+          "required": true,
+            "description": "Dados para atualização do produto",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/addProduct"
+                }
+              }
+            }
+        },
         "responses": {
           "200": {
             "description": "Atualizado com sucesso!",
@@ -123,8 +116,10 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "ID do produto"
+            "description": "ID do produto",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -140,7 +135,7 @@
         }
       }
     },
-    "/products/": {
+    "/products": {
       "get": {
         "tags": [
           "Products"
@@ -158,17 +153,17 @@
           "Products"
         ],
         "description": "Rota responsável por cadastrar/adicionar um produto novo.",
-        "parameters": [
-          {
-            "name": "newProduct",
-            "in": "body",
-            "description": "Deve ser fornecido um corpo com as informações obrigatórias para o cadastro do produto.",
-            "schema": {
-              "$ref": "#/definitions/addProduct"
-            },
-            "required": true
+        "requestBody": {
+          "required": true,
+          "description": "Deve ser fornecido um corpo com as informações obrigatórias para o cadastro do produto.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/addProduct"
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "Produto cadastrado com sucesso!",
@@ -190,11 +185,13 @@
         "description": "Rota responsável por procurar uma venda com base no ID fornecido.",
         "parameters": [
           {
+            "required": true,
+            "description": "ID da venda",
             "name": "id",
             "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "ID da venda"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -219,22 +216,26 @@
         "description": "Rota responsável por atualizar uma venda com base no ID fornecido.",
         "parameters": [
           {
+            "required": true,
+            "description": "ID da venda",
             "name": "id",
             "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "ID da venda"
-          },
-          {
-            "name": "newSale",
-            "in": "body",
-            "required": true,
             "schema": {
-              "$ref": "#/definitions/addSale"
-            },
-            "description": "Cada venda pode possuir vários produtos diferentes, por isso o corpo fornecido tem forma de lista(array), com todos os produtos da venda."
+              "type": "string"
+            }
           }
         ],
+        "requestBody": {
+          "required": true,
+          "description": "Cada venda pode possuir vários produtos diferentes, por isso o corpo fornecido tem forma de lista(array), com todos os produtos da venda.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/addSale"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Atualizado com sucesso!",
@@ -260,11 +261,13 @@
         "description": "Rota responsavel por deletar/remover uma venda com base no ID fornecido.",
         "parameters": [
           {
+            "required": true,
+            "description": "ID da venda",
             "name": "id",
             "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "ID da venda"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -280,13 +283,12 @@
         }
       }
     },
-    "/sales/": {
+    "/sales": {
       "get": {
         "tags": [
           "Sales"
         ],
         "description": "Rota responsável por coletar todas as vendas cadastradas.",
-        "parameters": [],
         "responses": {
           "200": {
             "description": "Busca realizada com sucesso!"
@@ -298,17 +300,17 @@
           "Sales"
         ],
         "description": "Rota responsável por criar uma nova venda",
-        "parameters": [
-          {
-            "name": "newSale",
-            "in": "body",
-            "schema": {
-              "$ref": "#/definitions/addSale"
-            },
-            "required": true,
-            "description": "Corpo para requisição de cadastro/criação, deve ser enviado em forma de array, com todos os produtos e quantidades definidos."
+        "requestBody": {
+          "required": true,
+          "description": "Corpo para requisição de cadastro/criação, deve ser enviado em forma de array, com todos os produtos e quantidades definidos.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/addSale"
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "Venda cadastrada com sucesso!",
@@ -320,6 +322,16 @@
             "description": "Corpo inválido!"
           }
         }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "$ref": "#/definitions/Product"
+      },
+      "Sale": {
+        "$ref": "#/definitions/Sale"
       }
     }
   },

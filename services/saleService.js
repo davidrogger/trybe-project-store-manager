@@ -1,18 +1,7 @@
-const Joi = require('joi');
 const saleModel = require('../models/saleModel');
 const { NotFoundError } = require('../helpers/NotFoundError');
-const { runSchema } = require('./validator');
 
 const saleService = {
-  validateProductSale: runSchema(Joi.object({
-    sales: Joi.array().items(
-      Joi.object({
-        productId: Joi.number().label('productId').integer().positive()
-          .required(),
-        quantity: Joi.number().label('quantity').min(1).required(),
-      }).required(),
-    ).required(),
-  })),
   removeSaleId: (sales) => sales
       .map(({ date, productId, quantity }) => ({ date, productId, quantity })),
   async getAll() {

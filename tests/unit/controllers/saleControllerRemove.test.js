@@ -1,16 +1,17 @@
 const { expect } = require('chai');
 const { stub } = require('sinon');
+
 const saleService = require('../../../services/saleService');
+const { validate } = require('../../../services/validationService');
+
 const saleController = require('../../../controllers/saleController');
 
 const status = require('../../../helpers/status');
 
-const validate = require('../../../services/validator');
 
 describe('Testing productController REMOVE', () => {
   const request = {};
   const response = {};
-  // describe('When the id to remove is invalid', () => {})
 
   before(async () => {
     response.status = stub().returns(response);

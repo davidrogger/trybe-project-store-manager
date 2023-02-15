@@ -1,15 +1,7 @@
-const Joi = require('joi');
 const productModel = require('../models/productModel');
-const { runSchema } = require('./validator');
 const { NotFoundError } = require('../helpers/NotFoundError');
 
 const productService = {
-  validateId: runSchema(Joi.object({
-    id: Joi.number().required().positive().integer(),
-  })),
-  validateProductBody: runSchema(Joi.object({
-    name: Joi.string().min(5).required(),
-  })),
   async getAll() {
     const result = await productModel.getAll();
     return result;
