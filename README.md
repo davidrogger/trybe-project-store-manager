@@ -286,6 +286,17 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
   > - **`404`**: Retorna um json com a mensagem `Sale not found`.
   > - **`422`**: Retorna um json com a mensagem `"id" must be a number`.
 
+  ## GET - `localhost:3000/sales`
+
+  > - Rota responsável mostrar todas vendas cadastradas.
+  > - Para buscar, é necessário realizar uma requisição GET.
+  > ### Exemplo:
+  >```
+  >localhost:3000/sales
+  >```
+  > ### Status:
+  > - **`200`**: Retorna um json com listagem de todas vendas.
+
   ## POST - `localhost:3000/sales`
 
   > - Rota responsável por cadastrar uma nova venda.
