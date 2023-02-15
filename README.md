@@ -122,17 +122,7 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
 
   </details>
 
-  <details>
-  <summary>
-    <strong>
-      ⚠️ Inicie o docker-compose
-    </strong>
-  </summary>
-
-  >Após clonar o respositório para iniciar o docker compose, você deve dentro da pasta raiz do projeto usar o comando: `docker-compose up -d`
-  >Verifique os containers usando o comando `docker ps` no terminal. Deve aparecer dois containers com o nome de *store_manager e *store_manager_db*.
-  </details>
-
+  
   <details>
   <summary>
     <strong>
@@ -148,6 +138,18 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
   >MYSQL_DATABASE=StoreManager
   >PORT=3000
   >```
+  </details>
+
+
+  <details>
+  <summary>
+    <strong>
+      ⚠️ Inicie o docker-compose
+    </strong>
+  </summary>
+
+  >Após clonar o respositório para iniciar o docker compose, você deve dentro da pasta raiz do projeto usar o comando: `docker-compose up -d`
+  >Verifique os containers usando o comando `docker ps` no terminal. Deve aparecer dois containers com o nome de *store_manager e *store_manager_db*.
   </details>
 
   <details>
