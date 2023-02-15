@@ -71,19 +71,23 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "ID do produto"
-          },
-          {
-            "name": "update",
-            "in": "body",
-            "description": "Dados para atualização do produto",
             "schema": {
-              "$ref": "#/definitions/addProduct"
+              "type": "string"
             },
-            "required": true
+            "description": "ID do produto"
           }
         ],
+        "requestBody": {
+          "required": true,
+            "description": "Dados para atualização do produto",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/addProduct"
+                }
+              }
+            }
+        },
         "responses": {
           "200": {
             "description": "Atualizado com sucesso!",
