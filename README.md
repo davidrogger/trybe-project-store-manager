@@ -205,6 +205,17 @@ Quero melhorar algumas partes do projeto na parte de teste, e a parte de documen
   > - **`404`**: Retorna um json com a mensagem `Product not found`.
   > - **`422`**: Retorna um json com a mensagem `"id" must be a number`.
 
+  ## GET - `localhost:3000/products`
+
+  > - Rota responsável por apresentar todos os produtos cadastrados.
+  > - Para realizar a buscar, é necessário realizar uma requisição GET.
+  > ### Exemplo:
+  >```
+  >localhost:3000/products
+  >```
+  > ### Status:
+  > - **`200`**: Retorna um json com uma lista de todos produtos cadastrados.
+
   ## POST - `localhost:3000/products`
 
   > - Rota responsável por realizar uma consulta do produto por seu *id*.
