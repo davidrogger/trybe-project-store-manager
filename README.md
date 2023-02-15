@@ -17,7 +17,7 @@
   </a>
 </div>
 
->*Imagens da documentação do swagger*
+>*Imagens da documentação swagger*
 #
 ## Projeto: `Store Manager`
 
@@ -38,16 +38,17 @@
 
 # Desafios
 
-- Boa parte do projeto foi desenolvida usando o metodo **TDD** (Test Driven Development), uma outra parte para entender melhor o que era retornado e entender o que deveria ser aplicado no teste unitário fiz sem TDD aplicando o teste na sequência.
+- Boa parte do projeto foi desenvolvida usando o método **TDD** (Test Driven Development), outra parte para entender melhor o que era retornado e entender o que deveria ser aplicado no teste unitário fiz sem TDD aplicando o teste na sequência.
 
-- Organizar toda aplicação, cada arquivo responsável por uma determinada parte. **Route** centralizando todas as rotas de um determinado caminho para lidar somente com aquela roda em especifico. **Controller** lidando com requisições e chamando **Serviços** responsaveis por lidar com validações e chamadas de busca no banco por meio dos **models**.
+- Organizar toda aplicação, cada arquivo responsável por uma determinada parte. - **Route** centralizando todas as rotas de um determinado caminho para lidar somente com aquela rota em específico.
+- **Controller** lidando com requisições e chamando
+- **Serviços** responsaveis por lidar com validações e chamadas de busca no banco por meio dos **models**.
 
-- Entender a documentação da biblioteca do **Joi**, para ter mais eficiência e agilidade nas validações do corpo necessário para o melhor funcionamento das requisições.
+- Entender a documentação da biblioteca do **Joi**, para ter mais eficiência e agilidade nas validações do corpo necessário para o garantir o funcionamento das requisições.
 
 # Conclusão
 
 - Maior desafio foi de como definir os testes iniciais, como escrever de forma clara (usando o inglês para treino do idioma), organizar as funcionalidades em camadas da API usando o conceito de **MSC**, encontrar funcionalidades que facilitariam as validações usando o **joi**, e também entender o que os requisitos dos testes solicitados pela trybe do projeto esperavam no desenvolvimento.
-Quero melhorar algumas partes do projeto na parte de teste, e a parte de documentação do swagger, essa foi a minha primeira vez usando ele, para coletar algumas imagens e aprensentar alguns endpoints.
 
 </details>
 
